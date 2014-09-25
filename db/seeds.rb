@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Book.destroy_all
+User.destroy_all
 
 50.times { Fabricate(:book)}
 10.times { Fabricate(:user)}
