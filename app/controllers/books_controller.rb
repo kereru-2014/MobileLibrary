@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   end
 
   api :GET, '/v1/books/:id', "Retrieve a book by Id "
-  param :id, Integer, :desc => "Id of book", :required => true
+  param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example"
   example '{
     "book": {
