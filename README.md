@@ -23,7 +23,7 @@ Mobile Library will provide a mobile platform for users to operate their persona
 #Github workflow
 
 - Master branch represents the production app that is pushed to Heroku
-- Pull Request approved by current Timelord
+- Pull Request approved by current Timelorde
 - Each feature will be developed on a branch
 - Pull request created when feature branch ready to merge
 - Feature branches will be deleted once the pull request is approved
@@ -35,7 +35,7 @@ Mobile Library will provide a mobile platform for users to operate their persona
 - Daily task manager
 - Monitors git commits (reminds you to commit)
 - Approve pull requests
-- Provides morningtea on day of Lordeship
+- Provides morningtea on day of Lordeship - aka Timelorde Tea-time
 - Awareness of team state
 - Daily rotating role:
 - Thurs/Fri is Grace
@@ -61,7 +61,7 @@ Mobile Library will provide a mobile platform for users to operate their persona
 - Pairing? Pairing should be done on achievable features, for longer features pairees should have freedom to change tasks if wished.
 
 #Product Management Tools
-- Waffle.io (kanban baord connected to Github)
+- Waffle.io (kanban board connected to Github)
 - TravisCI (continuious integration tool for running tests on production code before being released) STRETCH GOAL MONDAY
 
 #Project Learning Goals
