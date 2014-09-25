@@ -2,15 +2,15 @@ class BooksController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    render text: "heres all them books"
+    render json: Book.all
   end
 
   def create
-    render text: "you added a book"
+    render json: Book.create!(book_params)
   end
 
   def show
-    render text: "heres a singular book"
+    render json: Book.find(params[:id])
   end
 
   def update
@@ -19,6 +19,11 @@ class BooksController < ApplicationController
 
   def destroy
     render text: "destroy, crush, smash!!!"
+  end
+
+private
+  def book_params
+    params.require(:book).permit(:title, :author, :ISBN, :lent_date, :reminder_date)
   end
 
 end
