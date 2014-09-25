@@ -1,0 +1,22 @@
+{
+ "id": 1,
+  "version": 1.0,
+  "name": "Owls do cry",
+  "author": "Janet Frame",
+  "ISBN":  "0807609560",
+  "created_date": "2015-25-09T20:44:55",
+  "lent_date": "2015-25-09T20:44:55",
+  "borrower_id": 1,
+  "owner_id": 1,
+  "reminder_date":"2015-25-09T20:44:55",
+  "image": "owlsdocry.png"
+}
+ 
+ {
+ "id": 1,
+  "version": 1.0,
+  "name": "Henry Davidson",
+  "email": "example@test.com",
+  "mobile": "027123456",
+  "password": "//encrypted yet to be discovered"
+  }
