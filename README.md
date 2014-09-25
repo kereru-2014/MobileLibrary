@@ -1,6 +1,7 @@
 MobileLibrary
 =============
 [![Stories in Ready](https://badge.waffle.io/kereru-2014/mobilelibrary.svg?label=ready&title=Ready)](http://waffle.io/kereru-2014/mobilelibrary)
+
 *Phase 3 project by The Borrowers*
 
 
