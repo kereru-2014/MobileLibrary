@@ -66,7 +66,7 @@ Mobile Library will provide a mobile platform for users to operate their persona
 - TravisCI (continuious integration tool for running tests on production code before being released) STRETCH GOAL MONDAY
 
 #Project Learning Goals
-- Juliet - Javascript and handling APIS 
+- Juliet - Javascript and handling APIS
 - Karen - Javascript and handling APIS
 - Dan - Testing and OO
 - Grace - Confidence in ability to know what Ruby code to write given a problem, and some more testing experience
