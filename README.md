@@ -5,6 +5,12 @@ MobileLibrary
 *Phase 3 project by The Borrowers*
 
 
+API Documentation
+=================
+We use APIPIE to serve our API documentation to users.
+
+go to [http://salty-savannah-1450.herokuapp.com/apipie](http://salty-savannah-1450.herokuapp.com/apipie)
+
 ##Team members:
 
 - Karen Larsen
@@ -66,7 +72,7 @@ Mobile Library will provide a mobile platform for users to operate their persona
 - TravisCI (continuious integration tool for running tests on production code before being released) STRETCH GOAL MONDAY
 
 #Project Learning Goals
-- Juliet - Javascript and handling APIS 
+- Juliet - Javascript and handling APIS
 - Karen - Javascript and handling APIS
 - Dan - Testing and OO
 - Grace - Confidence in ability to know what Ruby code to write given a problem, and some more testing experience
