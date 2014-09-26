@@ -6,7 +6,7 @@ $(document).ready(function(){
     $.getJSON("/api/v1/books/", function(data)
     {
       var initialData = ko.utils.arrayMap(data, function(book){
-      return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, lent_date: book.lent_date };
+      return {not_fresh:true, id: book.id, title: book.title, author: book.author, ISBN: book.ISBN, image_url: book.image_url, lent_date: book.lent_date };
     })
       self.books(initialData);
     });
@@ -15,7 +15,8 @@ $(document).ready(function(){
       self.books.push({
         title:"",
         author:"",
-        isbn:""
+        isbn:"",
+        image_url:""
       });
     };
 
