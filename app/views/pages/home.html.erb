@@ -2,29 +2,25 @@
   <head>
     <title>MobileLibrary</title>
     <body>
-      <h1>Hello Juliet! This is your library </h1>
-      <div id = 'bookslist'>
-     <!--  <form action='/api/v1/books' method='POST'> -->
-        <!-- <table data-bind='visible: books().length >0'> -->
-          <table class = 'booksdisplay'>
-            <tr>
-              <th>Name</th>
-              <th>Author</th>
-              <th>ISBN</th>
-            </tr>
-            <tbody data-bind="foreach: books">
-            <tr>
-              <td> <input data-bind='value: title'/> </td>
-              <td> <input data-bind='value: author'/> </td>
-              <td> <input data-bind='value: ISBN'/> </td>
-            </tr>
-          </tbody>
-        </table>
-        <button data-bind='click: addBook'>Add Book</button>
-        <button data-bind='click: save, enable: books().length > 0' type='submit'>Save</button>
+      <div id = 'wrap'>
+        <h1>Hello Juliet! This is your library </h1>
+        <div id='box'>
+            <div class='bookobject' data-bind="foreach: books">
+              <img data-bind='attr: {src: image_url}'/>
+            </div>
+        </div>
+
       <!-- </form> -->
       </div>
-    </body>
+<!--        <td> <input data-bind='value: title'/> </td>
+               <td> <input data-bind='value: author'/> </td>
+-              <td> <input data-bind='value: isbn'/> </td>
++              <td> <input data-bind='value: ISBN'/> </td> -->
+<div class='buttonscontainer'>
+        <button data-bind='click: addBook'>Add Book</button>
+        <button data-bind='click: save, enable: books().length > 0' type='submit'>Save</button>
+      </div>
+      </body>
   </head>
 </html>
 
