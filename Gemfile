@@ -23,12 +23,18 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Needed to run rake db:seed in production
+# test helpers
 gem 'fabrication'
 gem 'faker'
+gem 'capybara'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
 end
 
 # group :development, :test do
