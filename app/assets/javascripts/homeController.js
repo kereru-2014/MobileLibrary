@@ -10,6 +10,17 @@ $(document).ready(function(){
     })
       self.books(initialData);
     });
+
+    self.addBook = function(){
+      self.books.push({
+        title:"",
+        author:"",
+        isbn:""
+      });
+    };
+
+
+
   };
 
 
