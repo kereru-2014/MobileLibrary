@@ -5,22 +5,22 @@ class BooksController < ApplicationController
   api :GET, '/v1/books', "Get all books fromt the library"
   formats ['JSON']
   description "Get all books from library for a users ID. Note user user must be logged in"
-  example '{
-    "book2": {
+  example '[
+    {
       "title": "Owls do cry",
       "author": "Janet Frame",
       "ISBN":  "0807609560",
       "lent_date": null,
       "reminder_date": null
-    }
-      "book1": {
+    },
+    {
       "title": "Love Me",
       "author": "The Pigeon",
       "ISBN":  "0800PIGEON",
       "lent_date": null,
       "reminder_date": null
     }
-  }'
+  ]'
   def index
     render json: Book.all
   end
