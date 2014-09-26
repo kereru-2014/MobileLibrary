@@ -2,6 +2,11 @@ class BooksController < ApplicationController
   protect_from_forgery with: :null_session
 
 # v1/books_controller.rb
+
+#--------------------------------------#
+#          The #get index action       #
+#--------------------------------------#
+
   api :GET, '/v1/books', "Get all books fromt the library"
   formats ['JSON']
   description "Get all books from library for a users ID. Note user user must be logged in"
@@ -25,6 +30,11 @@ class BooksController < ApplicationController
     render json: Book.all
   end
 
+
+#--------------------------------------#
+#          The #create action          #
+#--------------------------------------#
+
   api :POST, '/v1/books', "Add a book object using JSON"
   formats ['json']
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
@@ -39,8 +49,17 @@ class BooksController < ApplicationController
     }
   }'
   def create
-    render json: Book.create!(book_params)
+    @book = Book.create!(book_params)
+    if @book.save
+      redirect_to root_url
+    else
+      render json: @book
+    end
   end
+
+#--------------------------------------#
+#          The #show action            #
+#--------------------------------------#
 
   api :GET, '/v1/books/:id', "Retrieve a book by Id "
   param :id, String, :desc => "Id of book", :required => true
@@ -58,8 +77,12 @@ class BooksController < ApplicationController
     render json: Book.find(params[:id])
   end
 
+#--------------------------------------#
+#          The #edit action            #
+#--------------------------------------#
+
   api :EDIT, '/v1/books/:id/edit', "Find book by Id and recieve a JSON to edit"
-  param :id, Integer, :desc => "Id of book", :required => true
+  param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editting"
   example '{
     "book": {
@@ -74,21 +97,29 @@ class BooksController < ApplicationController
     render json: Book.find(params[:id])
   end
 
+#--------------------------------------#
+#          The #update action          #
+#--------------------------------------#
+
   api :PATCH, '/v1/books/:id', "Update a book by Id and with a JSON"
-  param :id, Integer, :desc => "Id of book", :required => true
+  param :id, String, :desc => "Id of book", :required => true
   description "Find book by a books id, the book will be returned in a json format as shown in the example"
     example '{
-    "book": {
-      "title": "Cherish Me",
-      "author": "The Sock Thief",
-      "ISBN":  "0800LOSTASOCK",
+  "book":
+    {
+      "title": "Owls do cry",
+      "author": "Janet Frame",
+      "ISBN":  "0807609560",
       "lent_date": null,
       "reminder_date": null
     }
-  }'
+ }'
   def update
     @book = Book.find(params[:id])
-    if @book.update_attributes(param[:book])
+    if @book.update_attributes(book_params)
+      #@book.save
+      puts "this is the book #{@book.title}"
+      puts "this is the parameters #{params[:book]}"
       redirect_to :action => 'show', :id => @book
     else
       render :action => 'edit'
@@ -96,9 +127,14 @@ class BooksController < ApplicationController
     end
   end
 
+#--------------------------------------#
+#         The #delete action           #
+#--------------------------------------#
+
   api :DELETE, '/v1/books/:id', "Delete a book of given Id"
-  param :id, Integer, :desc => "Id of book", :required => true
+  param :id, String, :desc => "Id of book", :required => true
   description "Select a book by its Id to remove it from the library"
+
   def destroy
     Book.find(params[:id]).destroy
     redirect_to :action => 'index'
@@ -108,5 +144,4 @@ private
   def book_params
     params.require(:book).permit(:title, :author, :ISBN, :lent_date, :reminder_date)
   end
-
 end
