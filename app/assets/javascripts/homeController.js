@@ -1,8 +1,24 @@
 $(document).ready(function(){
-  ko.applyBindings(new HomeViewModel());
-  console.log("made it");
+
+ var HomeViewModel = function(){
+    var self = this;
+    self.books = ko.observableArray([]);
+    $.getJSON("/api/v1/books/", function(data)
+    {
+      var initialData = ko.utils.arrayMap(data, function(book){
+      return { id: book.id, title: book.title, author: book.author, isbn: book.ISBN, lent_date: book.lent_date };
+    })
+      self.books(initialData);
+    });
+  };
+
+
+
+ko.applyBindings(new HomeViewModel());
+
+
 });
 
-function getUserLibrary(callback){
-  $.getJSON("/api/v1/books")
-}
+
+
+

@@ -3007,3 +3007,1130 @@ Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2014-09-2
 
 
 Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2014-09-26 08:56:19 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:08:34 +1200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 363ms (Views: 362.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:08:35 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 91ms (Views: 90.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:25 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:28 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:28 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 92ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:11:51 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 66ms (Views: 66.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:14 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 61ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:12:21 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 52ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:13:50 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (2.5ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 60ms (Views: 33.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 95ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:15:04 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 92ms (Views: 90.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 67ms (Views: 67.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:15 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:15:16 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (1.4ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 49ms (Views: 45.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 90ms (Views: 89.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:15:54 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:16:43 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 32ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:16:43 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:16:43 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:16:43 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:16:43 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:16:44 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:16:44 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:16:44 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:16:44 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 97ms (Views: 96.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:18:34 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (3.3ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 40ms (Views: 35.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 109ms (Views: 109.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:24 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:22:40 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 106ms (Views: 105.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:22:41 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 166ms (Views: 166.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:44:22 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 109ms (Views: 108.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:45:18 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 83ms (Views: 81.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 140ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 12:53:07 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.9ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 88ms (Views: 86.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:03:50 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:10:40 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 217ms (Views: 217.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:10:41 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 97ms (Views: 96.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:11:10 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:11:53 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (1.0ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 96ms (Views: 95.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:15:54 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 95ms (Views: 94.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:16:29 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.9ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 83ms (Views: 81.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 96ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:17:27 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.6ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 114ms (Views: 114.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:17:53 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.7ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:19:00 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 98ms (Views: 97.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:19:01 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 80ms (Views: 78.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:19:49 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 178ms (Views: 177.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:19:50 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.9ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 107ms (Views: 106.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:08 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:34:30 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 104ms (Views: 103.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:34:31 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 100ms (Views: 99.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:06 +1200
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 101ms (Views: 100.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:35:28 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:35:52 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 158ms (Views: 157.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:35:53 +1200
+Processing by BooksController#index as JSON
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 73ms (Views: 71.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 159ms (Views: 159.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 13:44:20 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 106ms (Views: 105.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+
+
+Started GET "/api/v1/books/1" for 127.0.0.1 at 2014-09-26 13:44:36 +1200
+Processing by BooksController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mBook Load (0.3ms)[0m  SELECT  "books".* FROM "books"  WHERE "books"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 100ms (Views: 99.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/library.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/library.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/homeController.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/knockout.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+
+
+Started GET "/api/v1/books/" for 127.0.0.1 at 2014-09-26 13:44:48 +1200
+Processing by BooksController#index as JSON
+  [1m[36mBook Load (0.9ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.9ms)
