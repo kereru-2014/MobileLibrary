@@ -3007,3 +3007,955 @@ Started GET "/apipie/javascripts/bundled/prettify.js" for 127.0.0.1 at 2014-09-2
 
 
 Started GET "/apipie/javascripts/apipie.js" for 127.0.0.1 at 2014-09-26 08:56:19 +1200
+  [1m[36m (182.1ms)[0m  [1mDROP DATABASE IF EXISTS "mobile_library_test"[0m
+  [1m[35m (858.4ms)[0m  CREATE DATABASE "mobile_library_test" ENCODING = 'unicode'
+  [1m[36mSQL (34.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (87.6ms)[0m  CREATE TABLE "books" ("id" serial primary key, "title" character varying(255), "author" character varying(255), "ISBN" character varying(255), "lent_date" timestamp, "reminder_date" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "borrows" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.7ms)[0m  CREATE TABLE "owns" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (6.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "phone_number" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (15.4ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (22.2ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (19.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140925044542')[0m
+  [1m[35m (23.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140925043516')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140925043619')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140925044537')
+  [1m[36m (132.3ms)[0m  [1mDROP DATABASE IF EXISTS "mobile_library_development"[0m
+  [1m[35m (115.4ms)[0m  DROP DATABASE IF EXISTS "mobile_library_test"
+  [1m[36m (744.1ms)[0m  [1mCREATE DATABASE "mobile_library_development" ENCODING = 'unicode'[0m
+  [1m[35m (259.6ms)[0m  CREATE DATABASE "mobile_library_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.8ms)[0m  CREATE TABLE "books" ("id" serial primary key, "title" character varying(255), "author" character varying(255), "ISBN" character varying(255), "lent_date" timestamp, "reminder_date" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "borrows" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.3ms)[0m  CREATE TABLE "owns" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "phone_number" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140925044542')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140925043516')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140925043619')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140925044537')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mBook Load (16.0ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "officiis"], ["author", "Brendon Little"], ["created_at", "2014-09-26 03:44:30.241207"], ["title", "Rerum porro vitae facilis nihil nam quod error."], ["updated_at", "2014-09-26 03:44:30.241207"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "excepturi"], ["author", "Jermey Mayert"], ["created_at", "2014-09-26 03:44:30.248506"], ["title", "Voluptatem dicta cupiditate quasi eos."], ["updated_at", "2014-09-26 03:44:30.248506"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "similique"], ["author", "Bennie King"], ["created_at", "2014-09-26 03:44:30.251187"], ["title", "Id maxime veniam voluptas quos."], ["updated_at", "2014-09-26 03:44:30.251187"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quis"], ["author", "Estella Paucek I"], ["created_at", "2014-09-26 03:44:30.253407"], ["title", "Eligendi inventore aut sed rerum nostrum accusantium cumque."], ["updated_at", "2014-09-26 03:44:30.253407"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "autem"], ["author", "Aaron Senger"], ["created_at", "2014-09-26 03:44:30.255579"], ["title", "Omnis non esse corrupti iure."], ["updated_at", "2014-09-26 03:44:30.255579"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sed"], ["author", "Khalil Cole"], ["created_at", "2014-09-26 03:44:30.257740"], ["title", "Nobis consequuntur debitis optio ullam incidunt qui dignissimos."], ["updated_at", "2014-09-26 03:44:30.257740"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ex"], ["author", "Haleigh Blanda"], ["created_at", "2014-09-26 03:44:30.259665"], ["title", "Doloribus tenetur aut molestias eum sed culpa aliquid."], ["updated_at", "2014-09-26 03:44:30.259665"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "culpa"], ["author", "Tiara Sauer"], ["created_at", "2014-09-26 03:44:30.261564"], ["title", "Deleniti nesciunt dicta aut alias ut."], ["updated_at", "2014-09-26 03:44:30.261564"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "quia"], ["author", "Perry Donnelly"], ["created_at", "2014-09-26 03:44:30.263521"], ["title", "Ipsam dolorem eum id aspernatur ut delectus."], ["updated_at", "2014-09-26 03:44:30.263521"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "velit"], ["author", "Ida Blanda"], ["created_at", "2014-09-26 03:44:30.265311"], ["title", "Sed dolorem sit molestias doloribus."], ["updated_at", "2014-09-26 03:44:30.265311"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ex"], ["author", "Myron Emard II"], ["created_at", "2014-09-26 03:44:30.267094"], ["title", "Qui corporis aut quo quia quis nisi."], ["updated_at", "2014-09-26 03:44:30.267094"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "consectetur"], ["author", "Jennie McLaughlin"], ["created_at", "2014-09-26 03:44:30.268879"], ["title", "Repellendus sint est eveniet."], ["updated_at", "2014-09-26 03:44:30.268879"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eos"], ["author", "Tavares Dare"], ["created_at", "2014-09-26 03:44:30.270560"], ["title", "Velit est quod temporibus reiciendis architecto qui harum consequuntur."], ["updated_at", "2014-09-26 03:44:30.270560"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "exercitationem"], ["author", "Brady Carroll"], ["created_at", "2014-09-26 03:44:30.272209"], ["title", "Officia consectetur magni nesciunt aliquam atque dolorum."], ["updated_at", "2014-09-26 03:44:30.272209"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "quia"], ["author", "Brooklyn Bailey"], ["created_at", "2014-09-26 03:44:30.273790"], ["title", "Magnam fugiat modi beatae non quas necessitatibus sapiente."], ["updated_at", "2014-09-26 03:44:30.273790"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quia"], ["author", "Brandy White"], ["created_at", "2014-09-26 03:44:30.275505"], ["title", "Est quod eaque veritatis aperiam velit dolorem."], ["updated_at", "2014-09-26 03:44:30.275505"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "delectus"], ["author", "Jonas Ziemann"], ["created_at", "2014-09-26 03:44:30.277235"], ["title", "Qui quia hic est ratione inventore aperiam iste non."], ["updated_at", "2014-09-26 03:44:30.277235"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "similique"], ["author", "Lionel Wunsch"], ["created_at", "2014-09-26 03:44:30.278942"], ["title", "Laudantium debitis illum commodi enim ut eveniet."], ["updated_at", "2014-09-26 03:44:30.278942"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "aut"], ["author", "Breanne Brown"], ["created_at", "2014-09-26 03:44:30.280576"], ["title", "Doloribus iusto suscipit velit dignissimos praesentium."], ["updated_at", "2014-09-26 03:44:30.280576"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptatum"], ["author", "Erwin Gerhold"], ["created_at", "2014-09-26 03:44:30.282232"], ["title", "Eveniet sed doloribus provident voluptatem."], ["updated_at", "2014-09-26 03:44:30.282232"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "quia"], ["author", "Mr. Enola Rempel"], ["created_at", "2014-09-26 03:44:30.284214"], ["title", "A qui sit maxime."], ["updated_at", "2014-09-26 03:44:30.284214"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "ab"], ["author", "Deion Barrows"], ["created_at", "2014-09-26 03:44:30.285846"], ["title", "Ipsum voluptas ipsa laboriosam beatae placeat hic qui."], ["updated_at", "2014-09-26 03:44:30.285846"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "explicabo"], ["author", "Harrison Bradtke"], ["created_at", "2014-09-26 03:44:30.287537"], ["title", "Minima sed itaque nobis consequatur quia id cumque natus."], ["updated_at", "2014-09-26 03:44:30.287537"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "non"], ["author", "Lenny Romaguera"], ["created_at", "2014-09-26 03:44:30.330142"], ["title", "Quia blanditiis totam aut corrupti fugiat dolores."], ["updated_at", "2014-09-26 03:44:30.330142"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "et"], ["author", "Amanda Murazik"], ["created_at", "2014-09-26 03:44:30.332532"], ["title", "Praesentium atque cumque aperiam."], ["updated_at", "2014-09-26 03:44:30.332532"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "aperiam"], ["author", "Noe Hirthe PhD"], ["created_at", "2014-09-26 03:44:30.334551"], ["title", "Eveniet voluptates esse sed ducimus possimus est reiciendis perferendis."], ["updated_at", "2014-09-26 03:44:30.334551"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "aut"], ["author", "Colten Yundt"], ["created_at", "2014-09-26 03:44:30.336417"], ["title", "Vero debitis maxime harum optio."], ["updated_at", "2014-09-26 03:44:30.336417"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "aut"], ["author", "Kristian Casper"], ["created_at", "2014-09-26 03:44:30.338197"], ["title", "Doloribus autem inventore quo labore."], ["updated_at", "2014-09-26 03:44:30.338197"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eos"], ["author", "Dr. Blanche Hauck"], ["created_at", "2014-09-26 03:44:30.340380"], ["title", "Est animi delectus est doloremque."], ["updated_at", "2014-09-26 03:44:30.340380"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "consectetur"], ["author", "Liliane Daniel MD"], ["created_at", "2014-09-26 03:44:30.342240"], ["title", "Sit ut quaerat qui totam."], ["updated_at", "2014-09-26 03:44:30.342240"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "aspernatur"], ["author", "Breanne Flatley"], ["created_at", "2014-09-26 03:44:30.344000"], ["title", "In ea odit molestias est dolor possimus dolorum consequatur."], ["updated_at", "2014-09-26 03:44:30.344000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "excepturi"], ["author", "Carmela Davis"], ["created_at", "2014-09-26 03:44:30.345811"], ["title", "Ut expedita quaerat illum."], ["updated_at", "2014-09-26 03:44:30.345811"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "sed"], ["author", "Pauline Auer"], ["created_at", "2014-09-26 03:44:30.347618"], ["title", "Et omnis nulla reprehenderit eos."], ["updated_at", "2014-09-26 03:44:30.347618"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "blanditiis"], ["author", "Rahsaan Jerde III"], ["created_at", "2014-09-26 03:44:30.349391"], ["title", "Sed modi qui at minus pariatur mollitia quia."], ["updated_at", "2014-09-26 03:44:30.349391"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "repellat"], ["author", "Gordon Balistreri"], ["created_at", "2014-09-26 03:44:30.351106"], ["title", "Ab veniam tempora consectetur et aspernatur facere."], ["updated_at", "2014-09-26 03:44:30.351106"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "placeat"], ["author", "Merle Moen"], ["created_at", "2014-09-26 03:44:30.352838"], ["title", "Quia eveniet tempore officiis autem velit labore omnis est."], ["updated_at", "2014-09-26 03:44:30.352838"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "repellat"], ["author", "Rosetta Stamm"], ["created_at", "2014-09-26 03:44:30.354510"], ["title", "Beatae hic voluptatibus nulla expedita in."], ["updated_at", "2014-09-26 03:44:30.354510"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "temporibus"], ["author", "Yazmin Simonis"], ["created_at", "2014-09-26 03:44:30.356187"], ["title", "Sunt consequatur sit error."], ["updated_at", "2014-09-26 03:44:30.356187"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eius"], ["author", "Justus Quigley Jr."], ["created_at", "2014-09-26 03:44:30.357891"], ["title", "Quam deleniti ut sit deserunt animi consequatur a qui."], ["updated_at", "2014-09-26 03:44:30.357891"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptatem"], ["author", "Novella Abshire"], ["created_at", "2014-09-26 03:44:30.359535"], ["title", "Cum nam iusto esse repellat culpa."], ["updated_at", "2014-09-26 03:44:30.359535"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "voluptatum"], ["author", "Mrs. Nicola Borer"], ["created_at", "2014-09-26 03:44:30.361203"], ["title", "Quis autem enim temporibus sed."], ["updated_at", "2014-09-26 03:44:30.361203"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sunt"], ["author", "Linda Daniel IV"], ["created_at", "2014-09-26 03:44:30.362854"], ["title", "Dolorum quia excepturi odio aut."], ["updated_at", "2014-09-26 03:44:30.362854"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eligendi"], ["author", "Annabelle Kuhic"], ["created_at", "2014-09-26 03:44:30.364495"], ["title", "Perferendis quia ex fugit quia excepturi necessitatibus repellat."], ["updated_at", "2014-09-26 03:44:30.364495"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quos"], ["author", "Roger Rath"], ["created_at", "2014-09-26 03:44:30.366132"], ["title", "Est ex officia vel ad quia est animi."], ["updated_at", "2014-09-26 03:44:30.366132"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eum"], ["author", "Camila Gleichner"], ["created_at", "2014-09-26 03:44:30.367774"], ["title", "Dicta magnam architecto voluptas odit numquam tenetur est."], ["updated_at", "2014-09-26 03:44:30.367774"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quia"], ["author", "Myrtle Bruen I"], ["created_at", "2014-09-26 03:44:30.369411"], ["title", "Magni nesciunt voluptas consequatur excepturi quae deleniti maxime."], ["updated_at", "2014-09-26 03:44:30.369411"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "id"], ["author", "Shea Prosacco I"], ["created_at", "2014-09-26 03:44:30.371119"], ["title", "Laboriosam tempora quod aperiam corporis magnam cupiditate voluptas."], ["updated_at", "2014-09-26 03:44:30.371119"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sint"], ["author", "Gerard Lakin"], ["created_at", "2014-09-26 03:44:30.372897"], ["title", "Qui sunt magni autem illum et."], ["updated_at", "2014-09-26 03:44:30.372897"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "corrupti"], ["author", "Lavinia Wilkinson"], ["created_at", "2014-09-26 03:44:30.374665"], ["title", "Et omnis non reprehenderit ratione iusto deleniti aut distinctio."], ["updated_at", "2014-09-26 03:44:30.374665"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "culpa"], ["author", "Dashawn Yundt"], ["created_at", "2014-09-26 03:44:30.376415"], ["title", "Cum hic aut impedit quaerat consequatur pariatur fugit."], ["updated_at", "2014-09-26 03:44:30.376415"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:30.384991"], ["email", "fatima.renner@beahan.com"], ["name", "Mrs. Ramiro Sporer"], ["phone_number", 934], ["updated_at", "2014-09-26 03:44:30.384991"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:30.388617"], ["email", "christine@carroll.info"], ["name", "Garry Kshlerin"], ["phone_number", 422], ["updated_at", "2014-09-26 03:44:30.388617"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:30.390903"], ["email", "cathrine@waters.name"], ["name", "Jeremy Block"], ["phone_number", 557], ["updated_at", "2014-09-26 03:44:30.390903"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:30.393179"], ["email", "ryleigh@shanahanwilkinson.com"], ["name", "Jeremie Hagenes DVM"], ["phone_number", 176], ["updated_at", "2014-09-26 03:44:30.393179"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:30.396346"], ["email", "kayley@weimannbechtelar.net"], ["name", "Viola Murphy"], ["phone_number", 1], ["updated_at", "2014-09-26 03:44:30.396346"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:30.399759"], ["email", "braden@doyle.com"], ["name", "Gisselle Kessler"], ["phone_number", 612], ["updated_at", "2014-09-26 03:44:30.399759"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:30.402976"], ["email", "freeman@osinski.org"], ["name", "Eduardo Ziemann"], ["phone_number", 1], ["updated_at", "2014-09-26 03:44:30.402976"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:30.405402"], ["email", "andreane@jacobi.biz"], ["name", "Lesly Klein"], ["phone_number", 0], ["updated_at", "2014-09-26 03:44:30.405402"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:30.407677"], ["email", "neal_bogan@hyattwalker.biz"], ["name", "Ryder Mills"], ["phone_number", 135], ["updated_at", "2014-09-26 03:44:30.407677"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:30.409857"], ["email", "stephen@keebler.com"], ["name", "Federico Ankunding"], ["phone_number", 637], ["updated_at", "2014-09-26 03:44:30.409857"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mBook Load (0.7ms)[0m  SELECT "books".* FROM "books"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (8.2ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 5]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 7]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 9]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 11]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 13]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 14]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 15]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 16]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 17]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 18]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 19]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 20]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 21]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 22]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 23]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 24]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 25]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 26]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 27]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 28]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 29]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 30]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 31]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 32]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 33]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 34]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 35]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 36]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 37]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 38]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 39]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 40]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 41]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 42]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 43]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 44]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 45]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 46]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 47]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 48]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "books" WHERE "books"."id" = $1  [["id", 49]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "books" WHERE "books"."id" = $1[0m  [["id", 50]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 4]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 10]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "voluptates"], ["author", "Stone Marks"], ["created_at", "2014-09-26 03:44:50.665237"], ["title", "Cumque fugiat quia labore dignissimos earum perspiciatis."], ["updated_at", "2014-09-26 03:44:50.665237"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "animi"], ["author", "Willow Yundt"], ["created_at", "2014-09-26 03:44:50.668647"], ["title", "In ea accusamus ipsa blanditiis."], ["updated_at", "2014-09-26 03:44:50.668647"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ipsam"], ["author", "Estell Rolfson"], ["created_at", "2014-09-26 03:44:50.670495"], ["title", "Ducimus maxime non harum deleniti eum omnis similique minima."], ["updated_at", "2014-09-26 03:44:50.670495"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "nisi"], ["author", "Stephen Goodwin"], ["created_at", "2014-09-26 03:44:50.672286"], ["title", "Maiores eos blanditiis dignissimos quod eveniet."], ["updated_at", "2014-09-26 03:44:50.672286"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "non"], ["author", "Kenya Donnelly III"], ["created_at", "2014-09-26 03:44:50.674345"], ["title", "Sint exercitationem cumque praesentium in."], ["updated_at", "2014-09-26 03:44:50.674345"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "beatae"], ["author", "Zachary O'Connell DDS"], ["created_at", "2014-09-26 03:44:50.676140"], ["title", "Sequi qui consequatur laboriosam quia temporibus."], ["updated_at", "2014-09-26 03:44:50.676140"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "harum"], ["author", "Vinnie Brown"], ["created_at", "2014-09-26 03:44:50.678021"], ["title", "Voluptas officiis id illum explicabo ipsum voluptate."], ["updated_at", "2014-09-26 03:44:50.678021"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptas"], ["author", "Timmothy Ritchie"], ["created_at", "2014-09-26 03:44:50.679858"], ["title", "Quia aut dolorem voluptate perspiciatis."], ["updated_at", "2014-09-26 03:44:50.679858"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "quaerat"], ["author", "Gonzalo Quigley"], ["created_at", "2014-09-26 03:44:50.681584"], ["title", "Deserunt vel delectus dolores nesciunt ratione."], ["updated_at", "2014-09-26 03:44:50.681584"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "distinctio"], ["author", "Ms. Jewell Friesen"], ["created_at", "2014-09-26 03:44:50.683368"], ["title", "Deserunt aut occaecati nam sed."], ["updated_at", "2014-09-26 03:44:50.683368"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "voluptas"], ["author", "Mariam Collins"], ["created_at", "2014-09-26 03:44:50.685401"], ["title", "Ex odio eligendi numquam ipsa quos qui beatae qui."], ["updated_at", "2014-09-26 03:44:50.685401"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sapiente"], ["author", "Jamey Cremin DDS"], ["created_at", "2014-09-26 03:44:50.687201"], ["title", "Ipsa unde iure sed voluptas dolores."], ["updated_at", "2014-09-26 03:44:50.687201"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "repudiandae"], ["author", "Tommie Towne"], ["created_at", "2014-09-26 03:44:50.688934"], ["title", "Debitis veniam id tempora ut atque."], ["updated_at", "2014-09-26 03:44:50.688934"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptatem"], ["author", "Elsie Dare DDS"], ["created_at", "2014-09-26 03:44:50.690723"], ["title", "Quisquam consectetur aut cupiditate molestias qui."], ["updated_at", "2014-09-26 03:44:50.690723"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "officia"], ["author", "Rocky Bergstrom"], ["created_at", "2014-09-26 03:44:50.692456"], ["title", "A non omnis cum corporis nulla est."], ["updated_at", "2014-09-26 03:44:50.692456"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "rerum"], ["author", "Cyril Gleichner III"], ["created_at", "2014-09-26 03:44:50.694243"], ["title", "Quaerat sit quis quod distinctio quas repudiandae aut non."], ["updated_at", "2014-09-26 03:44:50.694243"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "nihil"], ["author", "Jaclyn Prosacco"], ["created_at", "2014-09-26 03:44:50.695962"], ["title", "Aspernatur aut delectus tempore nihil modi."], ["updated_at", "2014-09-26 03:44:50.695962"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "reiciendis"], ["author", "Emilie Mueller II"], ["created_at", "2014-09-26 03:44:50.697774"], ["title", "Perspiciatis quo dolore quis."], ["updated_at", "2014-09-26 03:44:50.697774"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "sunt"], ["author", "Aracely Tromp III"], ["created_at", "2014-09-26 03:44:50.700016"], ["title", "Molestiae ratione a aspernatur."], ["updated_at", "2014-09-26 03:44:50.700016"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "aut"], ["author", "Dale Stark"], ["created_at", "2014-09-26 03:44:50.701868"], ["title", "Et repellat facilis eveniet aperiam et."], ["updated_at", "2014-09-26 03:44:50.701868"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "culpa"], ["author", "Aubrey Parisian"], ["created_at", "2014-09-26 03:44:50.703642"], ["title", "Ea ut voluptates ut molestias consequatur."], ["updated_at", "2014-09-26 03:44:50.703642"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptates"], ["author", "Laury Rohan I"], ["created_at", "2014-09-26 03:44:50.705578"], ["title", "Exercitationem voluptates et sint perspiciatis quasi nostrum sint."], ["updated_at", "2014-09-26 03:44:50.705578"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "dolorem"], ["author", "Mckenzie Hermiston"], ["created_at", "2014-09-26 03:44:50.707755"], ["title", "Sed eveniet saepe consequatur pariatur fugiat quae."], ["updated_at", "2014-09-26 03:44:50.707755"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sit"], ["author", "Emil Wiegand"], ["created_at", "2014-09-26 03:44:50.709571"], ["title", "Et quam doloremque sit ut provident."], ["updated_at", "2014-09-26 03:44:50.709571"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "repellendus"], ["author", "Yolanda Mosciski V"], ["created_at", "2014-09-26 03:44:50.711396"], ["title", "Deserunt et reiciendis voluptas mollitia dolorem."], ["updated_at", "2014-09-26 03:44:50.711396"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "non"], ["author", "Kristy Funk V"], ["created_at", "2014-09-26 03:44:50.713183"], ["title", "Quia ut eveniet praesentium aliquam consequatur."], ["updated_at", "2014-09-26 03:44:50.713183"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "et"], ["author", "Abbie Metz"], ["created_at", "2014-09-26 03:44:50.714941"], ["title", "Ut a nostrum consequatur maiores omnis reiciendis delectus velit."], ["updated_at", "2014-09-26 03:44:50.714941"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quaerat"], ["author", "Domingo Carroll"], ["created_at", "2014-09-26 03:44:50.716651"], ["title", "Ut sit quia et."], ["updated_at", "2014-09-26 03:44:50.716651"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ut"], ["author", "Tad Morar"], ["created_at", "2014-09-26 03:44:50.718404"], ["title", "A eaque ipsam sunt quia."], ["updated_at", "2014-09-26 03:44:50.718404"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "totam"], ["author", "Ceasar Goodwin"], ["created_at", "2014-09-26 03:44:50.759420"], ["title", "Deleniti sint est facilis voluptates unde aut eius repudiandae."], ["updated_at", "2014-09-26 03:44:50.759420"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "excepturi"], ["author", "Kenyon Raynor Sr."], ["created_at", "2014-09-26 03:44:50.762816"], ["title", "Omnis quasi recusandae temporibus laboriosam sint placeat."], ["updated_at", "2014-09-26 03:44:50.762816"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "numquam"], ["author", "Jayde Jones"], ["created_at", "2014-09-26 03:44:50.764917"], ["title", "Ut qui eos non optio omnis dolores."], ["updated_at", "2014-09-26 03:44:50.764917"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "blanditiis"], ["author", "Mrs. Darrick Bashirian"], ["created_at", "2014-09-26 03:44:50.767093"], ["title", "Saepe nostrum ab non harum vero veniam neque rerum."], ["updated_at", "2014-09-26 03:44:50.767093"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "qui"], ["author", "Tremayne Hyatt"], ["created_at", "2014-09-26 03:44:50.769355"], ["title", "Molestiae voluptate nesciunt dignissimos qui."], ["updated_at", "2014-09-26 03:44:50.769355"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "est"], ["author", "Dr. Hannah Deckow"], ["created_at", "2014-09-26 03:44:50.771474"], ["title", "Id et ea nihil veniam eligendi dicta voluptatem."], ["updated_at", "2014-09-26 03:44:50.771474"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "accusamus"], ["author", "Luther Armstrong"], ["created_at", "2014-09-26 03:44:50.773196"], ["title", "Cupiditate et in vitae."], ["updated_at", "2014-09-26 03:44:50.773196"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "molestiae"], ["author", "Annabell Glover"], ["created_at", "2014-09-26 03:44:50.774902"], ["title", "Molestias dolores dignissimos numquam saepe officiis quam esse."], ["updated_at", "2014-09-26 03:44:50.774902"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "voluptate"], ["author", "Howell Haley"], ["created_at", "2014-09-26 03:44:50.776757"], ["title", "Placeat assumenda est corporis aut distinctio et."], ["updated_at", "2014-09-26 03:44:50.776757"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "vel"], ["author", "Romaine Murphy DVM"], ["created_at", "2014-09-26 03:44:50.778539"], ["title", "Recusandae rerum laboriosam sed in ut ut."], ["updated_at", "2014-09-26 03:44:50.778539"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "nam"], ["author", "Norene Mueller"], ["created_at", "2014-09-26 03:44:50.780348"], ["title", "Eveniet est ad est modi id vitae."], ["updated_at", "2014-09-26 03:44:50.780348"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "facilis"], ["author", "Karelle Jones"], ["created_at", "2014-09-26 03:44:50.782106"], ["title", "Esse explicabo qui ducimus aut."], ["updated_at", "2014-09-26 03:44:50.782106"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "nulla"], ["author", "Emmie Miller"], ["created_at", "2014-09-26 03:44:50.783865"], ["title", "Et veritatis voluptatum ut."], ["updated_at", "2014-09-26 03:44:50.783865"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "placeat"], ["author", "Dr. Hosea Denesik"], ["created_at", "2014-09-26 03:44:50.785597"], ["title", "Perferendis laborum asperiores ipsam ut distinctio."], ["updated_at", "2014-09-26 03:44:50.785597"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "praesentium"], ["author", "Jovany Auer Jr."], ["created_at", "2014-09-26 03:44:50.787371"], ["title", "Voluptatem et autem ut nostrum id molestias itaque."], ["updated_at", "2014-09-26 03:44:50.787371"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "dolor"], ["author", "Margarette Jenkins"], ["created_at", "2014-09-26 03:44:50.789182"], ["title", "Ut consectetur voluptates ut."], ["updated_at", "2014-09-26 03:44:50.789182"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "alias"], ["author", "Jairo Hoppe"], ["created_at", "2014-09-26 03:44:50.790928"], ["title", "Neque odit maiores quisquam quo quos deserunt commodi."], ["updated_at", "2014-09-26 03:44:50.790928"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "quisquam"], ["author", "Dr. Jordon Crist"], ["created_at", "2014-09-26 03:44:50.792719"], ["title", "Eum dolorem beatae eos maxime omnis."], ["updated_at", "2014-09-26 03:44:50.792719"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "recusandae"], ["author", "Justine O'Keefe III"], ["created_at", "2014-09-26 03:44:50.794464"], ["title", "Doloribus itaque aut magni."], ["updated_at", "2014-09-26 03:44:50.794464"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ut"], ["author", "Magnolia Dibbert"], ["created_at", "2014-09-26 03:44:50.796694"], ["title", "Nihil maiores voluptatem ut."], ["updated_at", "2014-09-26 03:44:50.796694"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "amet"], ["author", "Steve Bahringer"], ["created_at", "2014-09-26 03:44:50.798467"], ["title", "Quos eos eligendi aperiam deleniti."], ["updated_at", "2014-09-26 03:44:50.798467"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:50.800819"], ["email", "floyd_goyette@braun.org"], ["name", "Brown Kautzer"], ["phone_number", 483], ["updated_at", "2014-09-26 03:44:50.800819"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:50.803489"], ["email", "sierra@boyergerhold.com"], ["name", "Ottilie O'Connell III"], ["phone_number", 332], ["updated_at", "2014-09-26 03:44:50.803489"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:50.805686"], ["email", "rey.watsica@metzmitchell.info"], ["name", "Ms. Yazmin Kreiger"], ["phone_number", 0], ["updated_at", "2014-09-26 03:44:50.805686"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:50.808068"], ["email", "cullen.cruickshank@schmelerwaelchi.com"], ["name", "Hassie Kuhlman"], ["phone_number", 601], ["updated_at", "2014-09-26 03:44:50.808068"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:50.810181"], ["email", "sherwood.rippin@bahringerklocko.biz"], ["name", "Constantin Schiller"], ["phone_number", 346], ["updated_at", "2014-09-26 03:44:50.810181"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:50.812271"], ["email", "daisha.buckridge@leannonmorar.org"], ["name", "Gerard Bogisich"], ["phone_number", 431], ["updated_at", "2014-09-26 03:44:50.812271"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:50.814500"], ["email", "jaida_corwin@rippin.name"], ["name", "Mr. Keyon Gutkowski"], ["phone_number", 558], ["updated_at", "2014-09-26 03:44:50.814500"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:50.816640"], ["email", "casimer@kemmer.biz"], ["name", "Brendon Cremin"], ["phone_number", 107], ["updated_at", "2014-09-26 03:44:50.816640"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:44:50.818734"], ["email", "winfield@cummerata.name"], ["name", "Jennie Abshire"], ["phone_number", 0], ["updated_at", "2014-09-26 03:44:50.818734"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:44:50.820776"], ["email", "pietro@ebertklocko.biz"], ["name", "Mrs. Eileen Jacobs"], ["phone_number", 0], ["updated_at", "2014-09-26 03:44:50.820776"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBooks (20140925043516)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (20.9ms)[0m  [1mCREATE TABLE "books" ("id" serial primary key, "title" character varying(255), "author" character varying(255), "ISBN" character varying(255), "lent_date" timestamp, "reminder_date" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140925043516"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140925043619)
+  [1m[35m (15.5ms)[0m  BEGIN
+  [1m[36m (19.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "phone_number" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140925043619"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBorrows (20140925044537)
+  [1m[35m (16.0ms)[0m  BEGIN
+  [1m[36m (18.0ms)[0m  [1mCREATE TABLE "borrows" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140925044537"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateOwns (20140925044542)
+  [1m[35m (15.7ms)[0m  BEGIN
+  [1m[36m (16.9ms)[0m  [1mCREATE TABLE "owns" ("id" serial primary key, "user_id" integer, "book_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140925044542"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mBook Load (0.5ms)[0m  SELECT "books".* FROM "books"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "esse"], ["author", "Mrs. Audie Fay"], ["created_at", "2014-09-26 03:45:39.519628"], ["title", "Voluptatibus animi alias ipsum facilis temporibus id."], ["updated_at", "2014-09-26 03:45:39.519628"]]
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "incidunt"], ["author", "Ms. Annamarie Maggio"], ["created_at", "2014-09-26 03:45:39.525838"], ["title", "Inventore odio qui aut neque quibusdam."], ["updated_at", "2014-09-26 03:45:39.525838"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "assumenda"], ["author", "Miss Casimer Collier"], ["created_at", "2014-09-26 03:45:39.529284"], ["title", "Iste officia unde nesciunt ipsam."], ["updated_at", "2014-09-26 03:45:39.529284"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "alias"], ["author", "Randi Streich II"], ["created_at", "2014-09-26 03:45:39.531425"], ["title", "Sed repellendus cumque id."], ["updated_at", "2014-09-26 03:45:39.531425"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "magni"], ["author", "Jettie Harris"], ["created_at", "2014-09-26 03:45:39.533348"], ["title", "Magnam voluptas sed non rerum reprehenderit accusantium voluptatem."], ["updated_at", "2014-09-26 03:45:39.533348"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "officia"], ["author", "Miss Agustina O'Keefe"], ["created_at", "2014-09-26 03:45:39.535404"], ["title", "Consequuntur commodi dolor quod amet accusantium."], ["updated_at", "2014-09-26 03:45:39.535404"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "vitae"], ["author", "Quinton Grady"], ["created_at", "2014-09-26 03:45:39.537234"], ["title", "Omnis quo aut cupiditate deleniti commodi facere amet."], ["updated_at", "2014-09-26 03:45:39.537234"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "dignissimos"], ["author", "Santos Morissette"], ["created_at", "2014-09-26 03:45:39.538942"], ["title", "Quidem optio occaecati in adipisci voluptatem eos et et."], ["updated_at", "2014-09-26 03:45:39.538942"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "nam"], ["author", "Alf Mosciski DDS"], ["created_at", "2014-09-26 03:45:39.540632"], ["title", "Corrupti porro error vel placeat qui corporis."], ["updated_at", "2014-09-26 03:45:39.540632"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "optio"], ["author", "Jane Simonis I"], ["created_at", "2014-09-26 03:45:39.542314"], ["title", "Maxime animi quia ea molestiae est."], ["updated_at", "2014-09-26 03:45:39.542314"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "eum"], ["author", "Felipe Buckridge II"], ["created_at", "2014-09-26 03:45:39.544060"], ["title", "Consequatur rerum est quaerat."], ["updated_at", "2014-09-26 03:45:39.544060"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "consequatur"], ["author", "Dr. Christiana Huel"], ["created_at", "2014-09-26 03:45:39.545841"], ["title", "Maxime enim possimus fugiat."], ["updated_at", "2014-09-26 03:45:39.545841"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "dolores"], ["author", "Nigel Gutkowski"], ["created_at", "2014-09-26 03:45:39.547609"], ["title", "Vel blanditiis quia nam debitis et."], ["updated_at", "2014-09-26 03:45:39.547609"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "eveniet"], ["author", "Kailey Kshlerin"], ["created_at", "2014-09-26 03:45:39.549378"], ["title", "Sed ex ut dolor tenetur."], ["updated_at", "2014-09-26 03:45:39.549378"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ut"], ["author", "Carroll West"], ["created_at", "2014-09-26 03:45:39.551073"], ["title", "Est beatae ea omnis qui rerum voluptates."], ["updated_at", "2014-09-26 03:45:39.551073"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "in"], ["author", "Adrien Ernser"], ["created_at", "2014-09-26 03:45:39.552882"], ["title", "Officiis nostrum fuga itaque quisquam."], ["updated_at", "2014-09-26 03:45:39.552882"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "explicabo"], ["author", "Jaclyn Bogisich"], ["created_at", "2014-09-26 03:45:39.554701"], ["title", "Nobis ipsam expedita blanditiis necessitatibus quis."], ["updated_at", "2014-09-26 03:45:39.554701"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "aut"], ["author", "Carlotta Russel"], ["created_at", "2014-09-26 03:45:39.556472"], ["title", "Magnam dolorum sit sed veritatis non quo."], ["updated_at", "2014-09-26 03:45:39.556472"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "est"], ["author", "Blaise VonRueden"], ["created_at", "2014-09-26 03:45:39.558239"], ["title", "Distinctio itaque voluptatem excepturi dolores."], ["updated_at", "2014-09-26 03:45:39.558239"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "reprehenderit"], ["author", "Earnestine Rosenbaum"], ["created_at", "2014-09-26 03:45:39.559982"], ["title", "Iste ipsa error ut voluptatem."], ["updated_at", "2014-09-26 03:45:39.559982"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "accusamus"], ["author", "Rene Howell"], ["created_at", "2014-09-26 03:45:39.561678"], ["title", "Sunt alias omnis doloremque dolores corrupti eum aut labore."], ["updated_at", "2014-09-26 03:45:39.561678"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "beatae"], ["author", "Dr. Gussie Ziemann"], ["created_at", "2014-09-26 03:45:39.563341"], ["title", "Perferendis nostrum provident voluptatem ut modi dolor odit ipsam."], ["updated_at", "2014-09-26 03:45:39.563341"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "delectus"], ["author", "Logan Streich"], ["created_at", "2014-09-26 03:45:39.564986"], ["title", "Est natus repellendus quod velit consequatur."], ["updated_at", "2014-09-26 03:45:39.564986"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "recusandae"], ["author", "Kraig Veum"], ["created_at", "2014-09-26 03:45:39.566667"], ["title", "Aperiam quidem rerum non fugit beatae ea nihil suscipit."], ["updated_at", "2014-09-26 03:45:39.566667"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "odit"], ["author", "Elza Koch"], ["created_at", "2014-09-26 03:45:39.568308"], ["title", "Delectus quam id vel illo."], ["updated_at", "2014-09-26 03:45:39.568308"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "magnam"], ["author", "Vivien Osinski"], ["created_at", "2014-09-26 03:45:39.569966"], ["title", "Illum autem blanditiis aspernatur officiis."], ["updated_at", "2014-09-26 03:45:39.569966"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "qui"], ["author", "Israel Grady V"], ["created_at", "2014-09-26 03:45:39.571635"], ["title", "Rerum sint dicta temporibus sit eveniet veritatis recusandae iste."], ["updated_at", "2014-09-26 03:45:39.571635"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "ullam"], ["author", "Mariam Hyatt"], ["created_at", "2014-09-26 03:45:39.573436"], ["title", "Laudantium et deserunt aut corporis mollitia."], ["updated_at", "2014-09-26 03:45:39.573436"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "omnis"], ["author", "Helen Waters PhD"], ["created_at", "2014-09-26 03:45:39.575264"], ["title", "Optio vero necessitatibus officia."], ["updated_at", "2014-09-26 03:45:39.575264"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "cumque"], ["author", "Harvey Harber Jr."], ["created_at", "2014-09-26 03:45:39.576973"], ["title", "Velit voluptas deleniti autem qui earum."], ["updated_at", "2014-09-26 03:45:39.576973"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ullam"], ["author", "Antone Blick"], ["created_at", "2014-09-26 03:45:39.578794"], ["title", "Quam accusamus et consequatur incidunt voluptas molestiae placeat ullam."], ["updated_at", "2014-09-26 03:45:39.578794"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "molestiae"], ["author", "Elroy McClure"], ["created_at", "2014-09-26 03:45:39.580638"], ["title", "Culpa accusantium in ipsam vel."], ["updated_at", "2014-09-26 03:45:39.580638"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "consequatur"], ["author", "Ervin Oberbrunner V"], ["created_at", "2014-09-26 03:45:39.582458"], ["title", "Consequatur quidem quam sit et molestias molestiae sapiente."], ["updated_at", "2014-09-26 03:45:39.582458"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "cum"], ["author", "Ms. Grady Feeney"], ["created_at", "2014-09-26 03:45:39.584226"], ["title", "Ab nostrum quo porro earum."], ["updated_at", "2014-09-26 03:45:39.584226"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "explicabo"], ["author", "Rodrigo Christiansen"], ["created_at", "2014-09-26 03:45:39.585992"], ["title", "Rerum occaecati vitae et iste quas maiores ea."], ["updated_at", "2014-09-26 03:45:39.585992"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "omnis"], ["author", "Elfrieda Wiza"], ["created_at", "2014-09-26 03:45:39.587732"], ["title", "Repellat a unde quis accusamus velit quis voluptatibus."], ["updated_at", "2014-09-26 03:45:39.587732"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "et"], ["author", "Vella Gerhold"], ["created_at", "2014-09-26 03:45:39.589470"], ["title", "Qui voluptatem cumque laboriosam."], ["updated_at", "2014-09-26 03:45:39.589470"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "sed"], ["author", "Zaria Nader"], ["created_at", "2014-09-26 03:45:39.591307"], ["title", "Magni eius aliquid ut."], ["updated_at", "2014-09-26 03:45:39.591307"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "voluptatem"], ["author", "Maddison Berge"], ["created_at", "2014-09-26 03:45:39.593054"], ["title", "Quia qui adipisci doloremque omnis nihil."], ["updated_at", "2014-09-26 03:45:39.593054"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "dolorum"], ["author", "Domingo Oberbrunner"], ["created_at", "2014-09-26 03:45:39.594849"], ["title", "Corporis similique vitae qui."], ["updated_at", "2014-09-26 03:45:39.594849"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "illum"], ["author", "Deborah Fay"], ["created_at", "2014-09-26 03:45:39.596614"], ["title", "Voluptatibus quas harum enim cupiditate sed illo velit."], ["updated_at", "2014-09-26 03:45:39.596614"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "corrupti"], ["author", "Maud Bogisich"], ["created_at", "2014-09-26 03:45:39.598374"], ["title", "Vel neque et maiores recusandae commodi nostrum animi."], ["updated_at", "2014-09-26 03:45:39.598374"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "magni"], ["author", "Clovis Braun"], ["created_at", "2014-09-26 03:45:39.600176"], ["title", "Excepturi aliquid repudiandae qui vitae adipisci officiis."], ["updated_at", "2014-09-26 03:45:39.600176"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "quam"], ["author", "Miss Cale Smith"], ["created_at", "2014-09-26 03:45:39.601961"], ["title", "Sit qui vitae debitis."], ["updated_at", "2014-09-26 03:45:39.601961"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "fuga"], ["author", "Alexandra Bruen"], ["created_at", "2014-09-26 03:45:39.603767"], ["title", "Culpa labore vel quo reiciendis quia velit assumenda."], ["updated_at", "2014-09-26 03:45:39.603767"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "itaque"], ["author", "Chloe Bartell"], ["created_at", "2014-09-26 03:45:39.605524"], ["title", "Qui vitae aliquam omnis neque alias quo magni."], ["updated_at", "2014-09-26 03:45:39.605524"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "minima"], ["author", "Thad Jacobs MD"], ["created_at", "2014-09-26 03:45:39.607276"], ["title", "Sapiente reprehenderit sunt et autem nulla in consequatur quo."], ["updated_at", "2014-09-26 03:45:39.607276"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "unde"], ["author", "David Hintz"], ["created_at", "2014-09-26 03:45:39.609169"], ["title", "Perspiciatis necessitatibus tempore est atque."], ["updated_at", "2014-09-26 03:45:39.609169"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["ISBN", "ea"], ["author", "Quentin Bogan"], ["created_at", "2014-09-26 03:45:39.610960"], ["title", "Officia aut doloremque veritatis aut neque consectetur quo ipsa."], ["updated_at", "2014-09-26 03:45:39.610960"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "cum"], ["author", "Felipe Heaney"], ["created_at", "2014-09-26 03:45:39.612774"], ["title", "Eius voluptatem ea culpa repudiandae est error voluptatem quia."], ["updated_at", "2014-09-26 03:45:39.612774"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:45:39.660746"], ["email", "dylan@moen.info"], ["name", "Earl Runolfsdottir"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.660746"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:45:39.665530"], ["email", "garett_mosciski@pacocha.biz"], ["name", "Dawson Ernser"], ["phone_number", 853], ["updated_at", "2014-09-26 03:45:39.665530"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:45:39.667980"], ["email", "joy@willms.org"], ["name", "Brock Buckridge"], ["phone_number", 814], ["updated_at", "2014-09-26 03:45:39.667980"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:45:39.670154"], ["email", "delia@denesikmurray.biz"], ["name", "Vada DuBuque V"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.670154"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:45:39.672354"], ["email", "alvis_bogisich@luettgen.biz"], ["name", "Lindsey Waelchi"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.672354"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:45:39.674593"], ["email", "liam_kunde@ziemannschroeder.com"], ["name", "Angus Kuvalis"], ["phone_number", 672], ["updated_at", "2014-09-26 03:45:39.674593"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:45:39.676841"], ["email", "turner_kiehn@okeefe.name"], ["name", "Mozell Hammes"], ["phone_number", 920], ["updated_at", "2014-09-26 03:45:39.676841"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:45:39.679046"], ["email", "kurt@trantow.net"], ["name", "Ms. Jasen Nikolaus"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.679046"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-09-26 03:45:39.681173"], ["email", "maiya_langworth@vonruedenstoltenberg.name"], ["name", "Miss Akeem Beier"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.681173"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone_number", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-09-26 03:45:39.683334"], ["email", "karli_heathcote@bechtelar.info"], ["name", "Amir O'Keefe"], ["phone_number", 1], ["updated_at", "2014-09-26 03:45:39.683334"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 15:46:06 +1200
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.8ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 89ms (Views: 20.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/books/" for 127.0.0.1 at 2014-09-26 15:47:56 +1200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+title: "Test book that grace put in."
+author: "Susan Waters MD"
+ISBN: "officia"
+lent_date: null
+reminder_date: null
+created_at: "2014-09-25T05:14:11.967Z"
+updated_at: "2014-09-25T05:14:11.967Z"
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{
+title: "Test book that grace put in."
+author: "Susan Waters MD"
+ISBN: "officia"
+lent_date: null
+reminder_date: null
+created_at: "2014-09-25T05:14:11.967Z"
+updated_at: "2014-09-25T05:14:11.967Z"
+}'):
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (58.0ms)
+
+
+Started POST "/api/v1/books/" for 127.0.0.1 at 2014-09-26 15:48:37 +1200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+title: "Test book that grace put in."
+author: "Susan Waters MD"
+ISBN: "officia"
+lent_date: null
+reminder_date: null
+created_at: null
+updated_at: null
+}
+
+ActionDispatch::ParamsParser::ParseError (795: unexpected token at '{
+title: "Test book that grace put in."
+author: "Susan Waters MD"
+ISBN: "officia"
+lent_date: null
+reminder_date: null
+created_at: null
+updated_at: null
+}'):
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.1ms)
+
+
+Started POST "/api/v1/books/" for 127.0.0.1 at 2014-09-26 15:49:36 +1200
+Processing by BooksController#create as */*
+  Parameters: {"title"=>"Test", "author"=>"Janet Frame", "ISBN"=>"0807609560", "lent_date"=>nil, "reminder_date"=>nil, "book"=>{"title"=>"Test", "author"=>"Janet Frame", "ISBN"=>"0807609560", "lent_date"=>nil, "reminder_date"=>nil}}
+Can't verify CSRF token authenticity
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "books" ("ISBN", "author", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["ISBN", "0807609560"], ["author", "Janet Frame"], ["created_at", "2014-09-26 03:49:36.387030"], ["title", "Test"], ["updated_at", "2014-09-26 03:49:36.387030"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 15:49:49 +1200
+Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.6ms)[0m  SELECT "books".* FROM "books"
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/books" for 127.0.0.1 at 2014-09-26 16:00:34 +1200
+Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.4ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.4ms)
