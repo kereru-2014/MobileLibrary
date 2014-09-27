@@ -11,14 +11,16 @@ class BooksController < ApplicationController
       "author": "Janet Frame",
       "ISBN":  "0807609560",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     },
     {
       "title": "Love Me",
       "author": "The Pigeon",
       "ISBN":  "0800PIGEON",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     }
   ]'
   def index
@@ -35,7 +37,8 @@ class BooksController < ApplicationController
       "author": "The Rat",
       "ISBN":  "0800RATTY",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     }
   }'
   def create
@@ -51,7 +54,8 @@ class BooksController < ApplicationController
       "author": "The Sock Thief",
       "ISBN":  "0800LOSTASOCK",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     }
   }'
   def show
@@ -67,7 +71,8 @@ class BooksController < ApplicationController
       "author": "The Sock Thief",
       "ISBN":  "0800LOSTASOCK",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     }
   }'
   def edit
@@ -83,7 +88,8 @@ class BooksController < ApplicationController
       "author": "The Sock Thief",
       "ISBN":  "0800LOSTASOCK",
       "lent_date": null,
-      "reminder_date": null
+      "reminder_date": null,
+      "image_url": "http://www.example.com/image.png"
     }
   }'
   def update
