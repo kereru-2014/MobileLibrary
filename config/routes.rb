@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "static#app"
   apipie
 
-  root 'pages#index'
+  # root 'pages#index'
 
   scope "/api/v1" do
     resources :books

@@ -10,4 +10,4 @@ Book.destroy_all
 User.destroy_all
 
 50.times { Fabricate(:book)}
-10.times { Fabricate(:user)}
+10.times { Fabricate(:borrower)}
