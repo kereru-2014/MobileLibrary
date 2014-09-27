@@ -7,9 +7,9 @@ class BooksController < ApplicationController
 #          The #get index action       #
 #--------------------------------------#
 
-  api :GET, '/v1/books', "Get all books fromt the library"
+  api :GET, '/v1/books', "Get all books from the library"
   formats ['JSON']
-  description "Get all books from library for a users ID. Note user user must be logged in"
+  description "Get all books from library for a users ID. Note user must be logged in"
   example '[
     {
       "title": "Owls do cry",
@@ -55,6 +55,8 @@ class BooksController < ApplicationController
     @book = Book.create!(book_params)
     if @book.save
       redirect_to root_url
+      #GF - think this will need to change now with Devise inplace
+
     else
       render json: @book
     end
@@ -85,7 +87,7 @@ class BooksController < ApplicationController
 #          The #edit action            #
 #--------------------------------------#
 
-  api :EDIT, '/v1/books/:id/edit', "Find book by Id and recieve a JSON to edit"
+  api :EDIT, '/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editting"
   example '{
@@ -103,7 +105,7 @@ class BooksController < ApplicationController
   end
 
 #--------------------------------------#
-#          The #update action          #
+#          The #update/lend action     #
 #--------------------------------------#
 
   api :PATCH, '/v1/books/:id', "Update a book by Id and with a JSON"

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # root 'pages#index'
 
   scope "/api/v1" do
-    resources :books
+    resources :books, :borrowers
   end
 end
