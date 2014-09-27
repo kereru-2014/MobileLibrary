@@ -15,7 +15,7 @@ $(document).ready(function(){
       self.books.push({
         title:"",
         author:"",
-        isbn:"",
+        ISBN:"",
         image_url:""
       });
     };
@@ -26,22 +26,46 @@ $(document).ready(function(){
       var request = {book:book};
 
 
-         console.log(request,book);
+      console.log(request,book);
       $.post('/api/v1/books', request, function(data){
       });
       self.books(initialData);
     };
 
+    // $("#dialog").dialog({ autoOpen: false, draggable: false });
 
+    // $("#dialog").submit(function () {
+    //   $(this).closest(".ui-dialog-content").dialog("close");
+    //   return false;
+    // });
+
+    $.fn.serializeObject = function () {
+      var o = {};
+      var a = this.serializeArray();
+      $.each(a, function () {
+          if (o[this.name] !== undefined) {
+              if (!o[this.name].push) {
+                  o[this.name] = [o[this.name]];
+              }
+              o[this.name].push(this.value || '');
+          } else {
+              o[this.name] = this.value || '';
+          }
+      });
+      return o;
+    };
+
+    self.newBook.subscribe(function (data) {
+          AddBook($(data).serializeObject());
+          // GetAllCustomers(mapJson);
+    });
   };
 
 
 
 ko.applyBindings(new HomeViewModel());
 
-// $("form").validate({submitHandler:HomeViewModel.save});
 });
-
 
 
 
