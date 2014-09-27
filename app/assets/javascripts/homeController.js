@@ -15,7 +15,7 @@ $(document).ready(function(){
       self.books.push({
         title:"",
         author:"",
-        isbn:"",
+        ISBN:"",
         image_url:""
       });
     };
@@ -26,7 +26,7 @@ $(document).ready(function(){
       var request = {book:book};
 
 
-         console.log(request,book);
+      console.log(request,book);
       $.post('/api/v1/books', request, function(data){
       });
       self.books(initialData);
