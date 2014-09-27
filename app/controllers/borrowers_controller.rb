@@ -92,10 +92,14 @@ class BorrowersController < ApplicationController
   }'
 
   def edit
-    render json: Book.find(params[:id])
+    render json: Borrower.find(params[:id])
   end
 
 
+
+#-------------------------------------#
+# Dealing with Rails strong params    #
+#-------------------------------------#
 
 private
   def borrower_params

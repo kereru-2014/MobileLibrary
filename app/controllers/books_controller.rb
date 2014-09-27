@@ -55,6 +55,8 @@ class BooksController < ApplicationController
     @book = Book.create!(book_params)
     if @book.save
       redirect_to root_url
+      #GF - think this will need to change now with Devise inplace
+
     else
       render json: @book
     end
@@ -103,7 +105,7 @@ class BooksController < ApplicationController
   end
 
 #--------------------------------------#
-#          The #update action          #
+#          The #update/lend action     #
 #--------------------------------------#
 
   api :PATCH, '/v1/books/:id', "Update a book by Id and with a JSON"
