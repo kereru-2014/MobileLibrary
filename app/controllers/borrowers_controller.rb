@@ -13,11 +13,13 @@ skip_before_filter  :verify_authenticity_token
   description "Get a list of all borrowers."
   example '[
     {
+      "id": 1
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
     },
    {
+      "id": 2
       "name": "Serena Wood",
       "email": "test2@test.com",
       "phone_number":  "0807609560",
