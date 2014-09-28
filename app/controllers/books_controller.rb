@@ -12,20 +12,28 @@ class BooksController < ApplicationController
   description "Get all books from library for a users ID. Note user must be logged in"
   example '[
     {
+      "id:" 1,
       "title": "Owls do cry",
       "author": "Janet Frame",
       "ISBN":  "0807609560",
       "lent_date": null,
       "reminder_date": null,
+      "created_at":"2014-09-27T06:15:30.943Z",
+      "updated_at":"2014-09-27T06:15:30.943Z",
       "image_url": "http://www.example.com/image.png"
+      "borrower_id":null
     },
     {
+      "id:" 2,
       "title": "Love Me",
       "author": "The Pigeon",
       "ISBN":  "0800PIGEON",
       "lent_date": null,
       "reminder_date": null,
+      "created_at":"2014-09-27T06:15:30.943Z",
+      "updated_at":"2014-09-27T06:15:30.943Z",
       "image_url": "http://www.example.com/image.png"
+      "borrower_id":null
     }
   ]'
   def index
@@ -42,14 +50,13 @@ class BooksController < ApplicationController
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
   example '{
-    "book": {
-      "title": "Adore Me",
-      "author": "The Rat",
-      "ISBN":  "0800RATTY",
-      "lent_date": null,
-      "reminder_date": null,
-      "image_url": "http://www.example.com/image.png"
-    }
+    "title": "Adore Me",
+    "author": "The Rat",
+    "ISBN":  "0800RATTY",
+    "lent_date": null,
+    "reminder_date": null,
+    "image_url": "http://www.example.com/image.png"
+    "borrower_id":null
   }'
   def create
     @book = Book.create!(book_params)
@@ -70,14 +77,14 @@ class BooksController < ApplicationController
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example"
   example '{
-    "book": {
-      "title": "Cherish Me",
-      "author": "The Sock Thief",
-      "ISBN":  "0800LOSTASOCK",
-      "lent_date": null,
-      "reminder_date": null,
-      "image_url": "http://www.example.com/image.png"
-    }
+    "id": 2,
+    "title": "Cherish Me",
+    "author": "The Sock Thief",
+    "ISBN":  "0800LOSTASOCK",
+    "lent_date": null,
+    "reminder_date": null,
+    "image_url": "http://www.example.com/image.png"
+    "borrower_id":null
   }'
   def show
     render json: Book.find(params[:id])
@@ -89,17 +96,20 @@ class BooksController < ApplicationController
 
   api :EDIT, '/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
-  description "Find a book by book_id, the book will be returned in a json format as shown in the example for editting"
+  description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
-    "book": {
-      "title": "Cherish Me",
-      "author": "The Sock Thief",
-      "ISBN":  "0800LOSTASOCK",
-      "lent_date": null,
-      "reminder_date": null,
-      "image_url": "http://www.example.com/image.png"
-    }
+    "id": 2,
+    "title": "Cherish Me",
+    "author": "The Sock Thief",
+    "ISBN":  "0800LOSTASOCK",
+    "lent_date": null,
+    "reminder_date": null,
+    "created_at":"2014-09-27T06:15:30.952Z",
+    "updated_at": "2014-09-28T03:49:56.773Z",
+    "image_url": "http://www.example.com/image.png"
+    "borrower_id":null
   }'
+
   def edit
     render json: Book.find(params[:id])
   end
@@ -108,20 +118,20 @@ class BooksController < ApplicationController
 #          The #update/lend action     #
 #--------------------------------------#
 
-  api :PATCH, '/v1/books/:id', "Update a book by Id and with a JSON"
+  api :PATCH, '/v1/books/:id', "Update a book by searching by Id using JSON"
   param :id, String, :desc => "Id of book", :required => true
-  description "Find book by a books id, the book will be returned in a json format as shown in the example"
+  description "Find book by a book's id, the book will be returned in a json format as shown in the example"
     example '{
-  "book":
-    {
-      "title": "Owls do cry",
-      "author": "Janet Frame",
-      "ISBN":  "0807609560",
-      "lent_date": null,
-      "reminder_date": null,
-      "image_url": "http://www.example.com/image.png"
-    }
+    "title": "Owls do cry",
+    "author": "Janet Frame",
+    "ISBN":  "0807609560",
+    "lent_date": null,
+    "reminder_date": null,
+    "image_url": "http://www.example.com/image.png"
+    "borrower_id":null
  }'
+
+ # GF doesnt seem to work
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
