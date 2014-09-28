@@ -1,5 +1,7 @@
 class BorrowersController < ApplicationController
 
+#to escape rails warning about CSRF token authenticty
+skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
 #--------------------------------------#
@@ -14,13 +16,11 @@ class BorrowersController < ApplicationController
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
    {
       "name": "Serena Wood",
       "email": "test2@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
   ]'
 
@@ -31,7 +31,7 @@ class BorrowersController < ApplicationController
 #--------------------------------------#
 #          The #create action          #
 #--------------------------------------#
-  api :POST, 'api/v1/borrowers', "Add a borrower using JSON"
+  api :POST, '/v1/borrowers', "Add a borrower using JSON"
   formats ['json']
   description "Use the create api to add a new borrower/contact to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
@@ -40,15 +40,14 @@ class BorrowersController < ApplicationController
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
   }'
 
   def create
     @borrower = Borrower.create!(borrower_params)
     if @borrower.save
-      # redirect_to lend_url?
-      flash[:notice] = "you added a contact"
+      redirect_to root_url
+      # flash[:notice] = "you added a contact"
     else
       render json: @borrower
     end
@@ -66,7 +65,6 @@ class BorrowersController < ApplicationController
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
   }'
 
@@ -87,7 +85,6 @@ class BorrowersController < ApplicationController
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
   }'
 
