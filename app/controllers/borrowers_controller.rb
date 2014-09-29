@@ -1,6 +1,8 @@
 class BorrowersController < ApplicationController
 
-#to escape rails warning about CSRF token authenticty
+# to escape rails warning about CSRF token authenticty
+# also check out application_controller comment about
+# null_session for APIs
 skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
@@ -46,9 +48,14 @@ skip_before_filter  :verify_authenticity_token
   }'
 
   def create
+    # You are creating the borrower (which is like doing a `new` then `save`
+    # at once) then saving again. I think the `.save` below is good but this
+    # should be changed to a `.new` which creates an instance of `Borrower`
+    # but does not save it to the database right away.
     @borrower = Borrower.create!(borrower_params)
     if @borrower.save
       redirect_to root_url
+      # Don't commit commented out code.
       # flash[:notice] = "you added a contact"
     else
       render json: @borrower

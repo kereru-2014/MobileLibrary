@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  # Ok you got this (I commented about it in another controller.)
   protect_from_forgery with: :null_session
 
 # v1/books_controller.rb
@@ -52,9 +53,12 @@ class BooksController < ApplicationController
     }
   }'
   def create
+    # See comment in Borrowers controller
     @book = Book.create!(book_params)
     if @book.save
       redirect_to root_url
+      # FYI http://rubyquicktips.com/post/385665023/fixme-todo-and-optimize-code-comments
+      # (but use sparingly)
       #GF - think this will need to change now with Devise inplace
 
     else
@@ -126,6 +130,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       #@book.save
+      # Don't commit debugging code
       puts "this is the book #{@book.title}"
       puts "this is the parameters #{params[:book]}"
       redirect_to :action => 'show', :id => @book
