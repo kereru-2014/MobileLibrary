@@ -1,5 +1,9 @@
 class BorrowersController < ApplicationController
 
+ protect_from_forgery with: :exception
+
+#to escape rails warning about CSRF token authenticty
+# skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
 #--------------------------------------#
@@ -11,16 +15,16 @@ class BorrowersController < ApplicationController
   description "Get a list of all borrowers."
   example '[
     {
+      "id": 1
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
    {
+      "id": 2
       "name": "Serena Wood",
       "email": "test2@test.com",
       "phone_number":  "0807609560",
-      "book_id": null,
     },
   ]'
 
@@ -30,23 +34,29 @@ class BorrowersController < ApplicationController
 
 #--------------------------------------#
 #          The #create action          #
-#--------------------------------------#
-  api :POST, 'api/v1/borrowers', "Add a borrower using JSON"
+#-----------------------
+  api :POST, '/v1/borrowers', "Add a borrower using JSON"
   formats ['json']
   description "Use the create api to add a new borrower/contact to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
   example '{
   {
+<<<<<<< HEAD
     "name": "Bob Smith",
     "email": "test@test.com",
     "phone_number":  "0807609560",
+=======
+      "name": "Bob Smith",
+      "email": "test@test.com",
+      "phone_number":  "0807609560",
+>>>>>>> master
     },
   }'
 
   def create
     @borrower = Borrower.create!(borrower_params)
     if @borrower.save
-      # redirect_to lend_url?
+      #GF to discuss redirect_to lend_url
     else
       render json: @borrower
     end
@@ -93,6 +103,15 @@ class BorrowersController < ApplicationController
 
   def edit
     render json: Borrower.find(params[:id])
+  end
+
+#--------------------------------------#
+#         The #delete action           #
+#--------------------------------------#
+
+  def destroy
+    Borrower.find(params[:id]).destroy
+    redirect_to :action => 'index'
   end
 
 #-------------------------------------#
