@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 #          The #get index action       #
 #--------------------------------------#
 
-  api :GET, '/v1/books', "Get all books from the library"
+  api :GET, 'api/v1/books', "Get all books from the library"
   formats ['JSON']
   description "Get all books from library for a users ID. Note user must be logged in"
   example '[
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
 #          The #create action          #
 #--------------------------------------#
 
-  api :POST, '/v1/books', "Add a book object using JSON"
+  api :POST, 'api/v1/books', "Add a book object using JSON"
   formats ['json']
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
@@ -61,9 +61,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.create!(book_params)
     if @book.save
-      redirect_to root_url
-      #GF - think this will need to change now with Devise inplace
-
+      redirect_to index_url
     else
       render json: @book
     end
@@ -94,7 +92,7 @@ class BooksController < ApplicationController
 #          The #edit action            #
 #--------------------------------------#
 
-  api :EDIT, '/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
+  api :EDIT, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
@@ -118,7 +116,7 @@ class BooksController < ApplicationController
 #          The #update action     #
 #--------------------------------------#
 
-  api :PATCH, '/v1/books/:id', "Update a book by searching by Id using JSON"
+  api :PATCH, 'api/v1/books/:id', "Update a book by searching by Id using JSON"
   param :id, String, :desc => "Id of book", :required => true
   description "Find book by a book's id, the book will be returned in a json format as shown in the example"
     example '{
@@ -149,7 +147,7 @@ class BooksController < ApplicationController
 #         The #delete action           #
 #--------------------------------------#
 
-  api :DELETE, '/v1/books/:id', "Delete a book of given Id"
+  api :DELETE, 'api/v1/books/:id', "Delete a book of given Id"
   param :id, String, :desc => "Id of book", :required => true
   description "Select a book by its Id to remove it from the library"
 
@@ -161,6 +159,20 @@ class BooksController < ApplicationController
 #--------------------------------------#
 #          The #lend action            #
 #--------------------------------------#
+
+  api :POST, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
+  param :borrower_id, Integer, :desc => "Id of borrower", :required => true
+  description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
+    example '{
+    "title": "Owls do cry",
+    "author": "Janet Frame",
+    "ISBN":  "0807609560",
+    "lent_date": null,
+    "reminder_date": null,
+    "image_url": "http://www.example.com/image.png"
+    "borrower_id":2
+ }'
+
   def lend
     @book = Book.find(params[:id])
     @borrower = Borrower.find(params[:borrower_id])
