@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
   protect_from_forgery with: :null_session
+  skip_before_filter  :verify_authenticity_token
+
+  before_filter :load_book, only: [:show, :lend, :update, :destroy]
 
 # v1/books_controller.rb
 
@@ -59,11 +62,11 @@ class BooksController < ApplicationController
     "borrower_id":null
   }'
   def create
-    @book = Book.create!(book_params)
+    @book = Book.new(book_params)
     if @book.save
-      redirect_to index_url
-    else
       render json: @book
+    else
+      redirect_to index_url
     end
   end
 
@@ -85,7 +88,7 @@ class BooksController < ApplicationController
     "borrower_id":null
   }'
   def show
-    render json: Book.find(params[:id])
+    render json: @book
   end
 
 #--------------------------------------#
@@ -131,12 +134,14 @@ class BooksController < ApplicationController
 
  # GF doesnt seem to work
   def update
-    @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       #@book.save
       puts "this is the book #{@book.title}"
       puts "this is the parameters #{params[:book]}"
-      redirect_to :action => 'show', :id => @book
+      # redirect_to(:back)
+      # redirect_to :action => 'show', :id => @book.id
+      # redirect_to @book
+      head :ok
     else
       render :action => 'edit'
       #error message
@@ -152,7 +157,7 @@ class BooksController < ApplicationController
   description "Select a book by its Id to remove it from the library"
 
   def destroy
-    Book.find(params[:id]).destroy
+    @book.destroy
     redirect_to :action => 'index'
   end
 
@@ -164,24 +169,22 @@ class BooksController < ApplicationController
   param :borrower_id, Integer, :desc => "Id of borrower", :required => true
   description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
     example '{
-    "title": "Owls do cry",
-    "author": "Janet Frame",
-    "ISBN":  "0807609560",
-    "lent_date": null,
-    "reminder_date": null,
-    "image_url": "http://www.example.com/image.png"
     "borrower_id":2
  }'
 
   def lend
-    @book = Book.find(params[:id])
     @borrower = Borrower.find(params[:borrower_id])
     @book.lend_to(@borrower)
-    redirect_to :action => 'index'
+    head :ok
+    # redirect_to :action => 'index'
   end
 
 private
   def book_params
     params.require(:book).permit(:title, :author, :ISBN, :lent_date, :reminder_date, :image_url)
+  end
+
+  def load_book
+    @book = Book.find(params[:id])
   end
 end

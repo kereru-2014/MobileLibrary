@@ -1,5 +1,6 @@
 class BorrowersController < ApplicationController
   protect_from_forgery with: :exception
+  skip_before_filter  :verify_authenticity_token
 
 # v1/books_controller.rb
 
@@ -77,6 +78,7 @@ class BorrowersController < ApplicationController
     puts @borrower.id
     # render json: Borrower.find(params[:name])
     render json: @borrower
+  end
 
 #--------------------------------------#
 #          The #edit action            #
@@ -115,5 +117,5 @@ class BorrowersController < ApplicationController
 private
   def borrower_params
     params.require(:borrower).permit(:name, :email, :phone_number)
-
+  end
 end
