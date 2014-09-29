@@ -138,7 +138,6 @@ class BooksController < ApplicationController
       #@book.save
       puts "this is the book #{@book.title}"
       puts "this is the parameters #{params[:book]}"
-      # redirect_to(:back)
       # redirect_to :action => 'show', :id => @book.id
       # redirect_to @book
       head :ok
