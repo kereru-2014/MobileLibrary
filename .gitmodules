@@ -2,3 +2,6 @@
 	path = public/web
 	url = git://github.com/kereru-2014/MobileLibraryWeb.git
 	branch = master
+[submodule "MobileLibraryWeb"]
+	path = MobileLibraryWeb
+	url = git://github.com/kereru-2014/MobileLibraryWeb.git
