@@ -1,8 +1,13 @@
+// Spoke to team, this is dead code. Remove from Git.
 $(document).ready(function(){
 
  var HomeViewModel = function(){
     var self = this;
     self.books = ko.observableArray([]);
+    // Like indenting consistancy as a team you should choose one bracket
+    // style and stick with it across the project. It make the code easer
+    // to read and maintain that way. (Speaking about the function with
+    // with an open bracket on the next line.
     $.getJSON("/api/v1/books/", function(data)
     {
       var initialData = ko.utils.arrayMap(data, function(book){
