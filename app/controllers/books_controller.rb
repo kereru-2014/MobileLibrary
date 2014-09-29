@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
   protect_from_forgery with: :null_session
+  skip_before_filter  :verify_authenticity_token
+
+  before_filter :load_book, only: [:show, :lend, :update, :destroy]
 
 # v1/books_controller.rb
 
@@ -7,7 +10,7 @@ class BooksController < ApplicationController
 #          The #get index action       #
 #--------------------------------------#
 
-  api :GET, '/v1/books', "Get all books from the library"
+  api :GET, 'api/v1/books', "Get all books from the library"
   formats ['JSON']
   description "Get all books from library for a users ID. Note user must be logged in"
   example '[
@@ -45,7 +48,7 @@ class BooksController < ApplicationController
 #          The #create action          #
 #--------------------------------------#
 
-  api :POST, '/v1/books', "Add a book object using JSON"
+  api :POST, 'api/v1/books', "Add a book object using JSON"
   formats ['json']
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
@@ -59,13 +62,11 @@ class BooksController < ApplicationController
     "borrower_id":null
   }'
   def create
-    @book = Book.create!(book_params)
+    @book = Book.new(book_params)
     if @book.save
-      redirect_to root_url
-      #GF - think this will need to change now with Devise inplace
-
-    else
       render json: @book
+    else
+      redirect_to index_url
     end
   end
 
@@ -87,14 +88,14 @@ class BooksController < ApplicationController
     "borrower_id":null
   }'
   def show
-    render json: Book.find(params[:id])
+    render json: @book
   end
 
 #--------------------------------------#
 #          The #edit action            #
 #--------------------------------------#
 
-  api :EDIT, '/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
+  api :EDIT, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
@@ -118,7 +119,7 @@ class BooksController < ApplicationController
 #          The #update action     #
 #--------------------------------------#
 
-  api :PATCH, '/v1/books/:id', "Update a book by searching by Id using JSON"
+  api :PATCH, 'api/v1/books/:id', "Update a book by searching by Id using JSON"
   param :id, String, :desc => "Id of book", :required => true
   description "Find book by a book's id, the book will be returned in a json format as shown in the example"
     example '{
@@ -133,12 +134,14 @@ class BooksController < ApplicationController
 
  # GF doesnt seem to work
   def update
-    @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       #@book.save
       puts "this is the book #{@book.title}"
       puts "this is the parameters #{params[:book]}"
-      redirect_to :action => 'show', :id => @book
+      # redirect_to(:back)
+      # redirect_to :action => 'show', :id => @book.id
+      # redirect_to @book
+      head :ok
     else
       render :action => 'edit'
       #error message
@@ -149,27 +152,39 @@ class BooksController < ApplicationController
 #         The #delete action           #
 #--------------------------------------#
 
-  api :DELETE, '/v1/books/:id', "Delete a book of given Id"
+  api :DELETE, 'api/v1/books/:id', "Delete a book of given Id"
   param :id, String, :desc => "Id of book", :required => true
   description "Select a book by its Id to remove it from the library"
 
   def destroy
-    Book.find(params[:id]).destroy
+    @book.destroy
     redirect_to :action => 'index'
   end
 
 #--------------------------------------#
 #          The #lend action            #
 #--------------------------------------#
+
+  api :POST, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
+  param :borrower_id, Integer, :desc => "Id of borrower", :required => true
+  description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
+    example '{
+    "borrower_id":2
+ }'
+
   def lend
-    @book = Book.find(params[:id])
     @borrower = Borrower.find(params[:borrower_id])
     @book.lend_to(@borrower)
-    redirect_to :action => 'index'
+    head :ok
+    # redirect_to :action => 'index'
   end
 
 private
   def book_params
     params.require(:book).permit(:title, :author, :ISBN, :lent_date, :reminder_date, :image_url)
+  end
+
+  def load_book
+    @book = Book.find(params[:id])
   end
 end
