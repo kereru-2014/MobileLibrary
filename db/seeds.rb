@@ -9,5 +9,13 @@
 Book.destroy_all
 User.destroy_all
 
-50.times { Fabricate(:book)}
+25.times { Fabricate(:book)}
 10.times { Fabricate(:borrower)}
+
+
+Book.create(borrower_id: 3, image_url:"http://static.comicvine.com/uploads/scale_small/0/787/112963-18529-108836-1-neil-gaiman-s-neverw.jpg")
+Book.create(borrower_id: 2, image_url:"http://static.comicvine.com/uploads/scale_small/0/787/112963-18529-108836-1-neil-gaiman-s-neverw.jpg")
+Book.create(borrower_id: 1, image_url:"http://static.comicvine.com/uploads/scale_small/0/787/112963-18529-108836-1-neil-gaiman-s-neverw.jpg")
+
+
+
