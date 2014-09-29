@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :books do
       member do
         post 'lend'
+        post 'return'
       end
         resources :borrowers, shallow: true
       end

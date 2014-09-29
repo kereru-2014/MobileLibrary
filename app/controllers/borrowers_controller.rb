@@ -50,8 +50,7 @@ class BorrowersController < ApplicationController
   def create
     @borrower = Borrower.create!(borrower_params)
     if @borrower.save
-      redirect_to root_url
-      # flash[:notice] = "you added a contact"
+      #GF to discuss redirect_to lend_url
     else
       render json: @borrower
     end
