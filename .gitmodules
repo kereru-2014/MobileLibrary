@@ -1,4 +1,0 @@
-[submodule "public/web"]
-	path = public/web
-	url = git://github.com/kereru-2014/MobileLibraryWeb.git
-	branch = master

@@ -1,7 +1,9 @@
 class BorrowersController < ApplicationController
 
+ protect_from_forgery with: :exception
+
 #to escape rails warning about CSRF token authenticty
-skip_before_filter  :verify_authenticity_token
+# skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
 #--------------------------------------#
@@ -32,7 +34,7 @@ skip_before_filter  :verify_authenticity_token
 
 #--------------------------------------#
 #          The #create action          #
-#--------------------------------------#
+#-----------------------
   api :POST, '/v1/borrowers', "Add a borrower using JSON"
   formats ['json']
   description "Use the create api to add a new borrower/contact to the database, the JSON will be expected to look like the example.
@@ -48,8 +50,7 @@ skip_before_filter  :verify_authenticity_token
   def create
     @borrower = Borrower.create!(borrower_params)
     if @borrower.save
-      redirect_to root_url
-      # flash[:notice] = "you added a contact"
+      #GF to discuss redirect_to lend_url
     else
       render json: @borrower
     end
@@ -94,7 +95,14 @@ skip_before_filter  :verify_authenticity_token
     render json: Borrower.find(params[:id])
   end
 
+#--------------------------------------#
+#         The #delete action           #
+#--------------------------------------#
 
+  def destroy
+    Borrower.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
 
 #-------------------------------------#
 # Dealing with Rails strong params    #
