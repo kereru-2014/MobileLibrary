@@ -1,9 +1,6 @@
 class BorrowersController < ApplicationController
+  protect_from_forgery with: :exception
 
- protect_from_forgery with: :exception
-
-#to escape rails warning about CSRF token authenticty
-# skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
 #--------------------------------------#
@@ -41,15 +38,12 @@ class BorrowersController < ApplicationController
   The JSON will be sent back to confirm persitance or show errors during persistance"
   example '{
   {
-<<<<<<< HEAD
     "name": "Bob Smith",
     "email": "test@test.com",
     "phone_number":  "0807609560",
-=======
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
->>>>>>> master
     },
   }'
 
