@@ -32,7 +32,7 @@ skip_before_filter  :verify_authenticity_token
 
 #--------------------------------------#
 #          The #create action          #
-#--------------------------------------#
+#-----------------------
   api :POST, '/v1/borrowers', "Add a borrower using JSON"
   formats ['json']
   description "Use the create api to add a new borrower/contact to the database, the JSON will be expected to look like the example.
@@ -94,7 +94,23 @@ skip_before_filter  :verify_authenticity_token
     render json: Borrower.find(params[:id])
   end
 
+#--------------------------------------#
+#         The #delete action           #
+#--------------------------------------#
 
+  def destroy
+    Borrower.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
+
+#--------------------------------------#
+#          The #lend action            #
+#-----------------------------------
+  def update
+    @borrower = Borrower.find(params[:id])
+    @book = Book.find(params[:id])
+    @book.lend_to(@borrower)
+  end
 
 #-------------------------------------#
 # Dealing with Rails strong params    #

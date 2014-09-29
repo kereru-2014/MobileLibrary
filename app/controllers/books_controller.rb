@@ -105,7 +105,7 @@ class BooksController < ApplicationController
   end
 
 #--------------------------------------#
-#          The #update/lend action     #
+#          The #update action     #
 #--------------------------------------#
 
   api :PATCH, '/v1/books/:id', "Update a book by Id and with a JSON"
@@ -145,6 +145,13 @@ class BooksController < ApplicationController
 
   def destroy
     Book.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
+
+  def lend
+    @book = Book.find(params[:id])
+    @borrower = Borrower.find(params[:borrower_id])
+    @book.lend_to(@borrower)
     redirect_to :action => 'index'
   end
 

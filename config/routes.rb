@@ -7,6 +7,24 @@ Rails.application.routes.draw do
   # root 'pages#index'
 
   scope "/api/v1" do
-    resources :books, :borrowers, :users
-  end
+    resources :users
+    resources :borrowers, only: [:show, :edit, :index, :destroy]
+end
+    # resources :books do
+    #   resources :borrowers
+    # end
+
+    # resources :books do
+    #   collection do
+    #     post 'lend'
+    #     post 'return'
+    #   end
+    # end
+
+    resources :books do
+      member do
+        post 'lend'
+      end
+      resources :borrowers, shallow: true
+    end
 end
