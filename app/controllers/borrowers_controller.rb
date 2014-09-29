@@ -41,9 +41,15 @@ class BorrowersController < ApplicationController
   The JSON will be sent back to confirm persitance or show errors during persistance"
   example '{
   {
+<<<<<<< HEAD
+    "name": "Bob Smith",
+    "email": "test@test.com",
+    "phone_number":  "0807609560",
+=======
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
+>>>>>>> master
     },
   }'
 
@@ -60,20 +66,23 @@ class BorrowersController < ApplicationController
 #          The #show action            #
 #--------------------------------------#
 
+
   api :GET, 'api/v1/borrowers/:name', "Find a borrower by name "
   param :id, String, :desc => "Name of borrower", :required => true
   description "Find a borrower by borrower_name, the borrower will be returned in a json format as shown in the example"
   example '{
-  {
       "name": "Bob Smith",
       "email": "test@test.com",
-      "phone_number":  "0807609560",
-    },
-  }'
+      "phone_number":  0807609560,
+      "created_at": "2014-09-27T06:15:31.127Z",
+      "updated_at": "2014-09-27T06:15:31.127Z",
+    }'
 
-  def show
-    render json: Borrower.find(params[:id])
-  end
+  def show(searched_name)
+    @borrower = Borrower.find_by name: searched_name
+    puts @borrower.id
+    # render json: Borrower.find(params[:name])
+    render json: @borrower
 
 #--------------------------------------#
 #          The #edit action            #
@@ -83,12 +92,13 @@ class BorrowersController < ApplicationController
   param :id, String, :desc => "Id of borrower", :required => true
   description "Find a borrower by name to find the borrower id, the borrower will be returned in a json format as shown in the example for editting"
   example '{
-  {
       "id": 1,
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
-    },
+      "book_id": null,
+      "created_at": "2014-09-27T06:15:31.127Z",
+      "updated_at": "2014-09-27T06:15:31.127Z",
   }'
 
   def edit
@@ -111,6 +121,5 @@ class BorrowersController < ApplicationController
 private
   def borrower_params
     params.require(:borrower).permit(:name, :email, :phone_number)
-  end
 
 end
