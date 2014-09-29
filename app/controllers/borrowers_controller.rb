@@ -1,7 +1,9 @@
 class BorrowersController < ApplicationController
 
+ protect_from_forgery with: :exception
+
 #to escape rails warning about CSRF token authenticty
-skip_before_filter  :verify_authenticity_token
+# skip_before_filter  :verify_authenticity_token
 # v1/books_controller.rb
 
 #--------------------------------------#
@@ -102,7 +104,6 @@ skip_before_filter  :verify_authenticity_token
     Borrower.find(params[:id]).destroy
     redirect_to :action => 'index'
   end
-
 
 #-------------------------------------#
 # Dealing with Rails strong params    #
