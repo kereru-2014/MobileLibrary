@@ -148,6 +148,9 @@ class BooksController < ApplicationController
     redirect_to :action => 'index'
   end
 
+#--------------------------------------#
+#          The #lend action            #
+#--------------------------------------#
   def lend
     @book = Book.find(params[:id])
     @borrower = Borrower.find(params[:borrower_id])

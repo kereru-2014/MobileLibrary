@@ -103,14 +103,6 @@ skip_before_filter  :verify_authenticity_token
     redirect_to :action => 'index'
   end
 
-#--------------------------------------#
-#          The #lend action            #
-#-----------------------------------
-  def update
-    @borrower = Borrower.find(params[:id])
-    @book = Book.find(params[:id])
-    @book.lend_to(@borrower)
-  end
 
 #-------------------------------------#
 # Dealing with Rails strong params    #
