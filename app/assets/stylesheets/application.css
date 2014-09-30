@@ -15,11 +15,15 @@
  */
 .hello{
   background-color: red;
+
 }
 
 .container{
   background-color: red;
-  font-family: 'Lato', sans-serif;
+}
+
+.container h2{
+
 }
 
 .new_user{
