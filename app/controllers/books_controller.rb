@@ -160,7 +160,7 @@ class BooksController < ApplicationController
 #--------------------------------------#
 
   api :PATCH, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
-  param :borrower_id, Integer, :desc => "Id of borrower", :required => true
+  param :borrower_id, String, :desc => "Id of borrower", :required => true
   description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
     example '{
     "borrower_id":2
