@@ -16,4 +16,3 @@ class Book < ActiveRecord::Base
     save
   end
 end
-

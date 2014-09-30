@@ -165,6 +165,7 @@ class BooksController < ApplicationController
     example '{
     "borrower_id":2
     "reminder_date":3
+    the route returning overdue is: /api/v1/users/:id/overdue
  }'
 
   def lend
