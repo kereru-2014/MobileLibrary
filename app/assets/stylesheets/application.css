@@ -17,6 +17,11 @@
   background-color: red;
 }
 
-.notice{
+.container{
   background-color: red;
+  font-family: 'Lato', sans-serif;
+}
+
+.new_user{
+  font-family: 'Lato', sans-serif;
 }
