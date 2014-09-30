@@ -8,8 +8,11 @@ class Book < ActiveRecord::Base
     save
   end
 
+  def lend_period
+  end
+
   def returned
-    borrower = nil
+    self.borrower = nil
     lent_date = nil
     save
   end

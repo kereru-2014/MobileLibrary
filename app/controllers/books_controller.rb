@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   protect_from_forgery with: :null_session
   skip_before_filter  :verify_authenticity_token
 
-  before_filter :load_book, only: [:show, :lend, :update, :destroy]
+  before_filter :load_book, only: [:show, :lend, :update, :destroy, :return]
 
 # v1/books_controller.rb
 
@@ -132,19 +132,13 @@ class BooksController < ApplicationController
     "borrower_id":null
  }'
 
- # GF doesnt seem to work
   def update
     if @book.update_attributes(book_params)
-      #@book.save
-      puts "this is the book #{@book.title}"
-      puts "this is the parameters #{params[:book]}"
-      # redirect_to(:back)
       # redirect_to :action => 'show', :id => @book.id
       # redirect_to @book
       head :ok
     else
       render :action => 'edit'
-      #error message
     end
   end
 
@@ -165,7 +159,7 @@ class BooksController < ApplicationController
 #          The #lend action            #
 #--------------------------------------#
 
-  api :POST, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
+  api :PATCH, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
   param :borrower_id, Integer, :desc => "Id of borrower", :required => true
   description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
     example '{
@@ -176,8 +170,20 @@ class BooksController < ApplicationController
     @borrower = Borrower.find(params[:borrower_id])
     @book.lend_to(@borrower)
     head :ok
-    # redirect_to :action => 'index'
   end
+
+#--------------------------------------#
+#         The #return action           #
+#--------------------------------------#
+
+  api :PATCH, 'api/v1/books/:id/return', "Update a book's borrower_id by using JSON"
+  description "change the borrower_id to nil, against a book"
+
+  def return
+    @book.returned
+    head :ok
+  end
+
 
 private
   def book_params
