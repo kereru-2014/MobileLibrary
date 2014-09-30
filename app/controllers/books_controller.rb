@@ -164,7 +164,7 @@ class BooksController < ApplicationController
   description "Find book by a book's id, add a borrower, set a reminder_date, lend by setting book's borrower_id will be returned in a json format as shown in the example"
     example '{
     "borrower_id":2
-    "len"
+    "reminder_date":3
  }'
 
   def lend
