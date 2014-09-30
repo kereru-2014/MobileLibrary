@@ -159,6 +159,7 @@ class BooksController < ApplicationController
 #          The #lend action            #
 #--------------------------------------#
 
+
   api :PATCH, 'api/v1/books/:id/lend', "Update a book's borrower_id by using JSON"
   param :borrower_id, String, :desc => "Id of borrower", :required => true
   description "Find book by a book's id, add a borrower, lend by setting book's borrower_id will be returned in a json format as shown in the example"
@@ -172,6 +173,20 @@ class BooksController < ApplicationController
     head :ok
   end
 
+
+  api :POST, '/api/v1/books/find', "Search for a book using the Google Books Api"
+  param :q, String, :desc => "Search input", :required => true
+  description "Find a book by searching Google Books"
+    example '{
+    "q":"The wind in the willows"
+ }'
+
+  def find
+    search_item = GoogleBooks::Search.find(params["q"])
+    render json: search_item
+  end
+
+
 #--------------------------------------#
 #         The #return action           #
 #--------------------------------------#
@@ -183,7 +198,6 @@ class BooksController < ApplicationController
     @book.returned
     head :ok
   end
-
 
 private
   def book_params

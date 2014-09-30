@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 
 # User Authentication
 gem 'devise'
+gem 'httparty'
 
 #turbolinks
 gem 'turbolinks', '~> 2.3.0'
