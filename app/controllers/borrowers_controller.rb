@@ -27,7 +27,7 @@ class BorrowersController < ApplicationController
   ]'
 
   def index
-    render json: Borrower.all
+    render json: current_user.borrowers
   end
 
 #--------------------------------------#
@@ -42,18 +42,13 @@ class BorrowersController < ApplicationController
     "name": "Bob Smith",
     "email": "test@test.com",
     "phone_number":  "0807609560",
-      "name": "Bob Smith",
-      "email": "test@test.com",
-      "phone_number":  "0807609560",
     },
   }'
 
   def create
-    @borrower = Borrower.create!(borrower_params)
+    @borrower = current_user.borrowers.build(borrower_params)
     if @borrower.save
-      #GF to discuss redirect_to lend_url
-    else
-      render json: @borrower
+    render json: @borrower
     end
   end
 
@@ -74,7 +69,7 @@ class BorrowersController < ApplicationController
     }'
 
   def show(searched_name)
-    @borrower = Borrower.find_by name: searched_name
+    @borrower = current_user.borrower.find_by name: searched_name
     puts @borrower.id
     # render json: Borrower.find(params[:name])
     render json: @borrower
@@ -98,7 +93,7 @@ class BorrowersController < ApplicationController
   }'
 
   def edit
-    render json: Borrower.find(params[:id])
+    render json: current_user.borrower.find(params[:id])
   end
 
 #--------------------------------------#
@@ -106,7 +101,7 @@ class BorrowersController < ApplicationController
 #--------------------------------------#
 
   def destroy
-    Borrower.find(params[:id]).destroy
+    current_user.borrower.find(params[:id]).destroy
     redirect_to :action => 'index'
   end
 

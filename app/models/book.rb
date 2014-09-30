@@ -3,13 +3,11 @@ class Book < ActiveRecord::Base
   belongs_to :borrower
   scope :overdue, -> { where("reminder_date < ?", DateTime.now) }
 
-  def lend_to(new_borrower)
+  def lend_to(new_borrower, number)
     self.borrower = new_borrower
+    self.reminder_date = number.weeks.from_now
     self.lent_date = DateTime.now
     save
-  end
-
-  def lend_period
   end
 
   def returned
@@ -18,4 +16,3 @@ class Book < ActiveRecord::Base
     save
   end
 end
-
