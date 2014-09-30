@@ -52,15 +52,16 @@ class BooksController < ApplicationController
   formats ['json']
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
-  example '{
-    "title": "Adore Me",
-    "author": "The Rat",
-    "ISBN":  "0800RATTY",
-    "lent_date": null,
-    "reminder_date": null,
+  example '[{
+    "title":"Adore Me",
+    "author":"The Rat",
+    "ISBN":"0800RATTY",
+    "lent_date":null,
+    "reminder_date":null,
     "image_url": "http://www.example.com/image.png"
     "borrower_id":null
-  }'
+  }]'
+
   def create
     @book = current_user.books.build(book_params)
     if @book.save
@@ -84,18 +85,21 @@ class BooksController < ApplicationController
     "ISBN":  "0800LOSTASOCK",
     "lent_date": null,
     "reminder_date": null,
+    "created_at":"2014-09-30T20:37:42.606Z",
+    "updated_at":"2014-09-30T20:37:42.606Z"
     "image_url": "http://www.example.com/image.png"
-    "borrower_id":null
+    "borrower_id":null,
+    "user_id" :1
   }'
   def show
     render json: @book
   end
 
 #--------------------------------------#
-#          The #edit action            #
+#          The #edit/show action       #
 #--------------------------------------#
 
-  api :EDIT, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
+  api :GET, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
@@ -116,7 +120,7 @@ class BooksController < ApplicationController
   end
 
 #--------------------------------------#
-#          The #update action     #
+#          The #update action          #
 #--------------------------------------#
 
   api :PATCH, 'api/v1/books/:id', "Update a book by searching by Id using JSON"
