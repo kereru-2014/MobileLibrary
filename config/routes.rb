@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
 
   scope "/api/v1" do
-    resources :users
+    get "/users/:id/overdue" => "users#overdue"
+
     resources :borrowers, only: [:show, :edit, :index, :destroy]
 
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
         patch 'lend'
         patch 'return'
       end
-        resources :borrowers, shallow: true
-      end
+      resources :borrowers, shallow: true
+    end
   end
 end

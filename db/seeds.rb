@@ -9,9 +9,13 @@
 Book.destroy_all
 User.destroy_all
 
-25.times { Fabricate(:book)}
+user = Fabricate(:user)
+
+25.times { Fabricate(:book, user: user)}
 10.times { Fabricate(:borrower)}
 
+Fabricate(:book, user: user, reminder_date: DateTime.yesterday)
+Fabricate(:book, user: user, reminder_date: DateTime.yesterday)
 
 Book.create(borrower_id: 3, image_url:"http://static.comicvine.com/uploads/scale_small/0/787/112963-18529-108836-1-neil-gaiman-s-neverw.jpg")
 Book.create(borrower_id: 2, image_url:"http://static.comicvine.com/uploads/scale_small/0/787/112963-18529-108836-1-neil-gaiman-s-neverw.jpg")

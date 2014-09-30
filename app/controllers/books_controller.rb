@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   protect_from_forgery with: :null_session
   skip_before_filter  :verify_authenticity_token
 
-  before_filter :load_book, only: [:show, :lend, :update, :destroy, :return]
+  before_filter :load_book, only: [:show, :lend, :update, :destroy, :return, :edit]
 
 # v1/books_controller.rb
 
@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     }
   ]'
   def index
-    render json: Book.all
+    render json: current_user.books
   end
 
 
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
     "borrower_id":null
   }'
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
     if @book.save
       render json: @book
     else
@@ -112,7 +112,7 @@ class BooksController < ApplicationController
   }'
 
   def edit
-    render json: Book.find(params[:id])
+    render json: @book
   end
 
 #--------------------------------------#
@@ -191,6 +191,6 @@ private
   end
 
   def load_book
-    @book = Book.find(params[:id])
+    @book = current_user.books.find(params[:id])
   end
 end
