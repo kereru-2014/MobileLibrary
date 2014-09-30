@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         patch 'return'
       end
       collection do
-        post 'find'
+        get 'find'
       end
       resources :borrowers, shallow: true
     end
