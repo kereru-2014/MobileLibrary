@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   belongs_to :borrower
+  scope :overdue, -> { where("reminder_date < ?", DateTime.now) }
 
   def lend_to(new_borrower)
     self.borrower = new_borrower
