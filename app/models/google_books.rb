@@ -23,8 +23,8 @@ module GoogleBooks
       books = []
 
       response["items"].each do |book|
-        info = book["volumeInfo"]
-        image_links = info["imageLinks"]
+        info = book.fetch("volumeInfo", {})
+        image_links = info.fetch("imageLinks", { "thumbnail" => "http://placekitten.com/200/200"})
         books << {
           title: info["title"],
           author: info["authors"],
