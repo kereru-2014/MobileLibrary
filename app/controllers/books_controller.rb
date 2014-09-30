@@ -177,7 +177,7 @@ class BooksController < ApplicationController
 #--------------------------------------#
 
   api :PATCH, 'api/v1/books/:id/return', "Update a book's borrower_id by using JSON"
-  description "change the borrower_id to nil, against a book"
+  description "change the borrower_id (against a book) to nil."
 
   def return
     @book.returned
