@@ -9,6 +9,8 @@ API Documentation
 =================
 We use APIPIE to serve our API documentation to users.
 
+[introduction presentation](http://slides.com/danlewis/deck--3)
+
 go to [http://salty-savannah-1450.herokuapp.com/apipie](http://salty-savannah-1450.herokuapp.com/apipie)
 
 ##Team members:
