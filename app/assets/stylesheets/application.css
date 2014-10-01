@@ -15,8 +15,17 @@
  */
 .hello{
   background-color: red;
+
 }
 
-.notice{
+.container{
   background-color: red;
+}
+
+.container h2{
+
+}
+
+.new_user{
+  font-family: 'Lato', sans-serif;
 }

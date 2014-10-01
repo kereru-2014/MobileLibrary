@@ -13,8 +13,6 @@ module GoogleBooks
 
     def initialize(args)
       @title = args[:title]
-
-
     end
 
     def self.find(title)
@@ -24,10 +22,12 @@ module GoogleBooks
 
       response["items"].each do |book|
         info = book.fetch("volumeInfo", {})
-        image_links = info.fetch("imageLinks", { "thumbnail" => "http://placekitten.com/200/200"})
+        image_links = info.fetch("imageLinks", { "thumbnail" => "http://www.clker.com/cliparts/7/e/O/F/z/Y/blank-book-md.png"})
+
         books << {
           title: info["title"],
           author: info["authors"],
+          isbn: info["industryIdentifiers"],
           thumbnail: image_links["thumbnail"]
         }
       end

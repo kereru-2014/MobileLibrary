@@ -25,6 +25,7 @@ class BooksController < ApplicationController
       "updated_at":"2014-09-27T06:15:30.943Z",
       "image_url": "http://www.example.com/image.png"
       "borrower_id":null
+      "user_id": 1
     },
     {
       "id:" 2,
@@ -35,14 +36,15 @@ class BooksController < ApplicationController
       "reminder_date": null,
       "created_at":"2014-09-27T06:15:30.943Z",
       "updated_at":"2014-09-27T06:15:30.943Z",
-      "image_url": "http://www.example.com/image.png"
-      "borrower_id":null
+      "image_url": "http://www.example.com/image.png",
+      "borrower_id":null,
+      "user_id": 1
     }
   ]'
+
   def index
     render json: current_user.books
   end
-
 
 #--------------------------------------#
 #          The #create action          #
@@ -52,15 +54,16 @@ class BooksController < ApplicationController
   formats ['json']
   description "Use the create api to add a new book to the database, the JSON will be expected to look like the example.
   The JSON will be sent back to confirm persitance or show errors during persistance"
-  example '{
-    "title": "Adore Me",
-    "author": "The Rat",
-    "ISBN":  "0800RATTY",
-    "lent_date": null,
-    "reminder_date": null,
+  example '[{
+    "title":"Adore Me",
+    "author":"The Rat",
+    "ISBN":"0800RATTY",
+    "lent_date":null,
+    "reminder_date":null,
     "image_url": "http://www.example.com/image.png"
     "borrower_id":null
-  }'
+  }]'
+
   def create
     @book = current_user.books.build(book_params)
     if @book.save
@@ -74,7 +77,7 @@ class BooksController < ApplicationController
 #          The #show action            #
 #--------------------------------------#
 
-  api :GET, '/v1/books/:id', "Retrieve a book by Id "
+  api :GET, '/v1/books/:id', "Retrieve a book by id "
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example"
   example '{
@@ -84,18 +87,22 @@ class BooksController < ApplicationController
     "ISBN":  "0800LOSTASOCK",
     "lent_date": null,
     "reminder_date": null,
+    "created_at":"2014-09-30T20:37:42.606Z",
+    "updated_at":"2014-09-30T20:37:42.606Z"
     "image_url": "http://www.example.com/image.png"
-    "borrower_id":null
+    "borrower_id":null,
+    "user_id":1
   }'
+
   def show
     render json: @book
   end
 
 #--------------------------------------#
-#          The #edit action            #
+#          The #edit/show action       #
 #--------------------------------------#
 
-  api :EDIT, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
+  api :GET, 'api/v1/books/:id/edit', "Find book by id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
@@ -108,7 +115,8 @@ class BooksController < ApplicationController
     "created_at":"2014-09-27T06:15:30.952Z",
     "updated_at": "2014-09-28T03:49:56.773Z",
     "image_url": "http://www.example.com/image.png"
-    "borrower_id":null
+    "borrower_id":null,
+    "user_id":1
   }'
 
   def edit
@@ -116,13 +124,13 @@ class BooksController < ApplicationController
   end
 
 #--------------------------------------#
-#          The #update action     #
+#          The #update action          #
 #--------------------------------------#
 
   api :PATCH, 'api/v1/books/:id', "Update a book by searching by Id using JSON"
   param :id, String, :desc => "Id of book", :required => true
   description "Find book by a book's id, the book will be returned in a json format as shown in the example"
-    example '{
+  example '{
     "title": "Owls do cry",
     "author": "Janet Frame",
     "ISBN":  "0807609560",
@@ -133,26 +141,37 @@ class BooksController < ApplicationController
  }'
 
   def update
-    if @book.update_attributes(book_params)
-      # redirect_to :action => 'show', :id => @book.id
-      # redirect_to @book
-      head :ok
-    else
-      render :action => 'edit'
-    end
+    @book.update_attributes(book_params)
+    render json: @book
   end
 
 #--------------------------------------#
 #         The #delete action           #
 #--------------------------------------#
 
-  api :DELETE, 'api/v1/books/:id', "Delete a book of given Id"
+  api :DELETE, 'api/v1/books/:id', "Delete a book of given id"
   param :id, String, :desc => "Id of book", :required => true
   description "Select a book by its Id to remove it from the library"
 
   def destroy
     @book.destroy
-    redirect_to :action => 'index'
+    head :accepted
+  end
+
+#--------------------------------------#
+#     The #find on google action       #
+#--------------------------------------#
+
+  api :POST, '/api/v1/books/find', "Search for a book using the Google Books Api"
+  param :q, String, :desc => "Search input", :required => true
+  description "Find a book by searching Google Books"
+  example '{
+    "q":"The wind in the willows"
+  }'
+
+  def find
+    search_item = GoogleBooks::Search.find(params["q"])
+    render json: search_item
   end
 
 #--------------------------------------#
@@ -162,31 +181,25 @@ class BooksController < ApplicationController
   api :PATCH, 'api/v1/books/:id/lend', "Update a book's borrower_id and reminder_date by using JSON"
   param :borrower_id, String, :desc => "Id of borrower, and week amount by string", :required => true
   description "Find book by a book's id, add a borrower, set a reminder_date, lend by setting book's borrower_id will be returned in a json format as shown in the example"
-    example '{
-    "borrower_id":2
-    "reminder_date":3
-    the route returning overdue is: /api/v1/users/:id/overdue
- }'
+  example '{
+    "id": 14,
+    "title": "In Cold Blood",
+    "author": "Truman Capote",
+    "ISBN": null,
+    "lent_date": "2014-09-30T23:41:40.367Z",
+    "reminder_date": "2014-10-07T23:41:40.367Z",
+    "created_at": "2014-09-30T22:07:07.621Z",
+    "updated_at": "2014-09-30T23:41:40.416Z",
+    "image_url": "http://www.example.com/image.png",
+    "borrower_id": 4,
+    "user_id": 1
+  }'
 
   def lend
     @borrower = Borrower.find(params[:borrower_id])
     @book.lend_to(@borrower, params[:reminder_date])
-    head :ok
+    render json: @book
   end
-
-
-  api :POST, '/api/v1/books/find', "Search for a book using the Google Books Api"
-  param :q, String, :desc => "Search input", :required => true
-  description "Find a book by searching Google Books"
-    example '{
-    "q":"The wind in the willows"
- }'
-
-  def find
-    search_item = GoogleBooks::Search.find(params["q"])
-    render json: search_item
-  end
-
 
 #--------------------------------------#
 #         The #return action           #

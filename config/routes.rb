@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   scope "/api/v1" do
     get "/users/:id/overdue" => "users#overdue"
 
-    resources :borrowers, only: [:show, :edit, :index, :destroy]
-
+    resources :borrowers
 
     resources :books do
       member do
