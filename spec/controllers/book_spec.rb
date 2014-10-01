@@ -79,8 +79,6 @@ RSpec.describe BooksController do
     it "expects that the firsts books title has the name fabricated" do
       expect(json["title"]).to eq(@book.title)
     end
-
-
   end
 
 #--------------------------------------#

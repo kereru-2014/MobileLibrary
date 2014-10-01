@@ -5,8 +5,10 @@ class Book < ActiveRecord::Base
   scope :alphabetically, -> {order("lower(title) ASC")}
 
   def lend_to(new_borrower, number)
+    week_num = number.to_i
+  binding.pry
     self.borrower = new_borrower
-    self.reminder_date = number.weeks.from_now
+    self.reminder_date = week_num.weeks.from_now
     self.lent_date = DateTime.now
     save
   end
