@@ -34,8 +34,5 @@ module GoogleBooks
 
       books
     end
-
   end
-
-
 end
