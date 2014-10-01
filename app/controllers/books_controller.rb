@@ -141,11 +141,8 @@ class BooksController < ApplicationController
  }'
 
   def update
-    if @book.update_attributes(book_params)
-      head :ok
-    else
-      render :action => 'edit'
-    end
+    @book.update_attributes(book_params)
+    render json: @book
   end
 
 #--------------------------------------#
