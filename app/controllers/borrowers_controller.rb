@@ -17,22 +17,29 @@ class BorrowersController < ApplicationController
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  "0807609560",
+      "created_at": "2014-09-30T21:46:48.253Z",
+      "updated_at": "2014-09-30T21:46:48.253Z",
+      "user_id": 1
     },
    {
       "id": 2
       "name": "Serena Wood",
       "email": "test2@test.com",
       "phone_number":  "0807609560",
+      "created_at": "2014-09-30T21:42:43.551Z",
+      "updated_at": "2014-09-30T21:42:43.551Z",
+      "user_id": 1
     },
   ]'
 
   def index
-    render json: current_user.borrowers
+    borrowers = current_user.borrowers.alphabetically
+    render json: borrowers
   end
 
 #--------------------------------------#
 #          The #create action          #
-#-----------------------
+#--------------------------------------#
   api :POST, '/v1/borrowers', "Add a borrower using JSON"
   formats ['json']
   description "Use the create api to add a new borrower/contact to the database, the JSON will be expected to look like the example.
@@ -57,29 +64,29 @@ class BorrowersController < ApplicationController
 #--------------------------------------#
 
 
-  api :GET, 'api/v1/borrowers/:name', "Find a borrower by name "
+  api :GET, 'api/v1/borrowers/:id', "Find a borrower by id "
   param :id, String, :desc => "Name of borrower", :required => true
   description "Find a borrower by borrower_name, the borrower will be returned in a json format as shown in the example"
   example '{
+      "id": 5,
       "name": "Bob Smith",
       "email": "test@test.com",
       "phone_number":  0807609560,
       "created_at": "2014-09-27T06:15:31.127Z",
       "updated_at": "2014-09-27T06:15:31.127Z",
+      "user_id": 1
     }'
 
-  def show(searched_name)
-    @borrower = current_user.borrower.find_by name: searched_name
-    puts @borrower.id
-    # render json: Borrower.find(params[:name])
+  def show
+    @borrower = current_user.borrowers.find(params[:id])
     render json: @borrower
   end
 
 #--------------------------------------#
-#          The #edit action            #
+#          The #edit/show action       #
 #--------------------------------------#
 
-  api :EDIT, 'api/v1/borrower/:id/edit', "Find borrower by name and receive JSON to edit"
+  api :GET, 'api/v1/borrowers/:id/edit', "Find borrower by name and receive JSON to edit"
   param :id, String, :desc => "Id of borrower", :required => true
   description "Find a borrower by name to find the borrower id, the borrower will be returned in a json format as shown in the example for editting"
   example '{
@@ -90,19 +97,24 @@ class BorrowersController < ApplicationController
       "book_id": null,
       "created_at": "2014-09-27T06:15:31.127Z",
       "updated_at": "2014-09-27T06:15:31.127Z",
+      "user_id": 1
   }'
 
   def edit
-    render json: current_user.borrower.find(params[:id])
+    render json: current_user.borrowers.find(params[:id])
   end
 
 #--------------------------------------#
 #         The #delete action           #
 #--------------------------------------#
 
+  api :DELETE, 'api/v1/borrowers/:id', "Delete a borrower of given id"
+  param :id, String, :desc => "Id of borrower", :required => true
+  description "Select a borrower by their Id to remove them from the library"
+
   def destroy
-    current_user.borrower.find(params[:id]).destroy
-    redirect_to :action => 'index'
+    current_user.borrowers.find(params[:id]).destroy
+    head :accepted
   end
 
 #-------------------------------------#
