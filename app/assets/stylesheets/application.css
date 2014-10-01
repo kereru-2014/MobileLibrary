@@ -31,5 +31,70 @@
 
 .new_user{
   font-family: 'Lato', sans-serif;
+  width:80%;
+  left:500px;
 }
+
+
+
+.loginForm{
+  width:35.5em;
+  height:20.0em;
+  margin:0 auto;
+}
+
+.bookPic{
+  width:35.5em;
+  height:30.0em;
+  margin:0 auto;
+  background-image: url('http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg');
+  background-repeat: no-repeat;
+}
+
+.quote{
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 90%;
+}
+
+@media screen and (min-width: 35.5em){
+.pure-u-sm-1{
+  }
+
+}
+
+@media screen and (min-width: 48em){
+.pure-u-md-1{
+  }
+
+}
+
+@media screen and (min-width: 64em){
+  .pure-u-lg-1{
+  }
+
+}
+
+
+
+
+/*@media screen and (min-width: 64em){
+  .new_user{
+  }
+
+}
+
+@media screen and (min-width: 48em){
+  .new_user{
+    color:yellow;
+  }
+
+}
+
+@media screen and (min-width: 35.5em){
+  .new_user{
+  }
+
+}*/
+
 
