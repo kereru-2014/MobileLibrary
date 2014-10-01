@@ -2,6 +2,10 @@ require "rails_helper"
 
 RSpec.describe BooksController do
 
+  before do
+    sign_in Fabricate(:user)
+  end
+
 #--------------------------------------#
 #          The #get index action       #
 #--------------------------------------#
@@ -9,6 +13,7 @@ RSpec.describe BooksController do
   describe "GET index" do
     before do
       @book = Fabricate(:book)
+      sign_in @book.user
       get :index
     end
 
@@ -40,17 +45,12 @@ RSpec.describe BooksController do
 
     it "is successful" do
       post :create, { book: @valid_attrs }
-      expect(response).to be_redirect
+      expect(response).to be_success
     end
 
     it "adds one to the total number of books" do
       expect { post :create, { book: @valid_attrs } }.to change(Book, :count).by(1)
-      expect(response).to be_redirect
-    end
-
-    it "redirects to the correct url" do
-      post :create, { book: @valid_attrs }
-      expect(response).to redirect_to root_url
+      expect(response).to be_success
     end
   end
 
@@ -60,24 +60,21 @@ RSpec.describe BooksController do
 
   describe "GET show" do
     before do
-      @book = Fabricate(:book, id: 1)
-      get :show, id: 1
+      @book = Fabricate(:book, id: 1, title: "Far Far Away")
+      sign_in @book.user
     end
 
     it "is successful" do
+      get :show, { id: @book.id}
       expect(response).to be_success
     end
 
-    it 'returns the specified item' do
-      expect(json["id"]).to eq(@book.id)
+    it 'returns the specified book id' do
+      expect(@book.id).to eq(1)
     end
 
-    it "checks if the JSON object contains a 'title' key" do
-      expect(json).to have_key('title')
-    end
-
-    it "expects that the firsts books title has the name fabricated" do
-      expect(json["title"]).to eq(@book.title)
+    it "checks if the book contains a 'title' expected" do
+      expect(@book.title).to eq("Far Far Away")
     end
   end
 
@@ -86,21 +83,22 @@ RSpec.describe BooksController do
 #--------------------------------------#
 
   describe "EDIT update" do
-    let(:book){Fabricate(:book, id: 1)}
     before do
-      get :edit, :id => book.id
+      @book = Fabricate(:book, id: 1, title: "Far Far Away")
+      sign_in @book.user
     end
 
     it "is successful" do
+      get :edit, { id: @book.id}
       expect(response).to be_success
     end
 
-    it 'returns the specified item' do
-      expect(json["id"]).to eq(book.id)
+    it 'returns the specified book id' do
+      expect(@book.id).to eq(1)
     end
 
-    it "expects that the books title has the name fabricated" do
-      expect(json["title"]).to eq(book.title)
+    it "checks if the book contains a 'title' expected" do
+      expect(@book.title).to eq("Far Far Away")
     end
   end
 
@@ -109,13 +107,15 @@ RSpec.describe BooksController do
 #--------------------------------------#
 
   describe "PATCH update" do
-    let!(:book){Fabricate(:book, id: 1)}
+
     before do
-      patch :update, :id => book.id, :book => {:title => "yo"}
+      @book = Fabricate(:book, id: 1)
+      sign_in @book.user
+      patch :update, :id => @book.id, :book => {:title => "yo"}
     end
 
     it "is successful" do
-      expect(response).to be_redirect
+      expect(response).to be_success
     end
 
     it 'returns the specified item' do
@@ -128,17 +128,19 @@ RSpec.describe BooksController do
 #--------------------------------------#
 
   describe "DELETE destroy" do
-    let(:book){Fabricate(:book, id: 1)}
+
     before do
-      patch :update, :id => book.id
+     @book = Fabricate(:book, id: 1)
+     sign_in @book.user
     end
 
-    xit "is successful" do
+    it "is successful" do
       expect(response).to be_success
     end
 
-    xit 'returns the specified item' do
-      expect(json["id"]).to eq(@book.id)
+    it 'deletes the specified book' do
+      expect { delete :destroy, {id: @book.id } }.to change(Book, :count).by(-1)
     end
   end
+
 end

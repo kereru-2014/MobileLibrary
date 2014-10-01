@@ -30,6 +30,8 @@ RSpec.describe Book do
       borrower = Fabricate.build(:borrower)
       book.lend_to(borrower, 4)
       expect(book.lent_date).to eq(today)
+      book.lend_to(borrower, "4")
+      expect(book.lent_date).to eq(today)
     end
   end
 
