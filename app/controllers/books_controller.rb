@@ -201,7 +201,7 @@ class BooksController < ApplicationController
   def lend
     @borrower = Borrower.find(params[:borrower_id])
     @book.lend_to(@borrower, params[:reminder_date])
-    head :ok
+    render json: @book
   end
 
 #--------------------------------------#
