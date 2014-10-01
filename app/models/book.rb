@@ -12,7 +12,8 @@ class Book < ActiveRecord::Base
 
   def returned
     self.borrower = nil
-    lent_date = nil
+    self.reminder_date = nil
+    self.lent_date = nil
     save
   end
 end
