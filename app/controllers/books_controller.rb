@@ -77,7 +77,7 @@ class BooksController < ApplicationController
 #          The #show action            #
 #--------------------------------------#
 
-  api :GET, '/v1/books/:id', "Retrieve a book by Id "
+  api :GET, '/v1/books/:id', "Retrieve a book by id "
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example"
   example '{
@@ -102,7 +102,7 @@ class BooksController < ApplicationController
 #          The #edit/show action       #
 #--------------------------------------#
 
-  api :GET, 'api/v1/books/:id/edit', "Find book by Id and receive JSON to edit"
+  api :GET, 'api/v1/books/:id/edit', "Find book by id and receive JSON to edit"
   param :id, String, :desc => "Id of book", :required => true
   description "Find a book by book_id, the book will be returned in a json format as shown in the example for editing"
   example '{
@@ -152,7 +152,7 @@ class BooksController < ApplicationController
 #         The #delete action           #
 #--------------------------------------#
 
-  api :DELETE, 'api/v1/books/:id', "Delete a book of given Id"
+  api :DELETE, 'api/v1/books/:id', "Delete a book of given id"
   param :id, String, :desc => "Id of book", :required => true
   description "Select a book by its Id to remove it from the library"
 
@@ -197,9 +197,6 @@ class BooksController < ApplicationController
     "borrower_id": 4,
     "user_id": 1
   }'
-    '{
-    the route returning overdue is: /api/v1/users/:id/overdue
- }'
 
   def lend
     @borrower = Borrower.find(params[:borrower_id])

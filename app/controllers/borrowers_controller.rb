@@ -63,7 +63,7 @@ class BorrowersController < ApplicationController
 #--------------------------------------#
 
 
-  api :GET, 'api/v1/borrowers/:id', "Find a borrower by name "
+  api :GET, 'api/v1/borrowers/:id', "Find a borrower by id "
   param :id, String, :desc => "Name of borrower", :required => true
   description "Find a borrower by borrower_name, the borrower will be returned in a json format as shown in the example"
   example '{
@@ -107,7 +107,7 @@ class BorrowersController < ApplicationController
 #         The #delete action           #
 #--------------------------------------#
 
-  api :DELETE, 'api/v1/borrowers/:id', "Delete a borrower of given Id"
+  api :DELETE, 'api/v1/borrowers/:id', "Delete a borrower of given id"
   param :id, String, :desc => "Id of borrower", :required => true
   description "Select a borrower by their Id to remove them from the library"
 
