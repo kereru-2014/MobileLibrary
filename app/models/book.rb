@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   belongs_to :borrower
   scope :overdue, -> { where("reminder_date < ?", DateTime.now) }
+  scope :alphabetically, -> {order("lower(title) ASC")}
 
   def lend_to(new_borrower, number)
     self.borrower = new_borrower

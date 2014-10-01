@@ -43,7 +43,8 @@ class BooksController < ApplicationController
   ]'
 
   def index
-    render json: current_user.books
+    books = current_user.books.alphabetically
+    render json: books
   end
 
 #--------------------------------------#

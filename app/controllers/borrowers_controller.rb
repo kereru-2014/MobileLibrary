@@ -33,7 +33,8 @@ class BorrowersController < ApplicationController
   ]'
 
   def index
-    render json: current_user.borrowers
+    borrowers = current_user.borrowers.alphabetically
+    render json: borrowers
   end
 
 #--------------------------------------#
