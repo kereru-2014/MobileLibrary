@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-  <li>
-  <%= button_to('Edit registration', edit_user_registration_path) %>
+  <li id="editRegistrationButton">
+  <%= link_to('Edit registration', edit_user_registration_path) %>
   </li>
 <% else %>
   <li>
-  <%= button_to('Register', new_user_registration_path)  %>
+  <%= link_to('Register', new_user_registration_path)  %>
   </li>
 <% end %>
