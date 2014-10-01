@@ -24,6 +24,7 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
   config.include ControllerHelpers, :type => :controller
+  config.include Requests::JsonHelpers, :type => :controller
 
   config.include Requests::JsonHelpers, :type => :controller
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
