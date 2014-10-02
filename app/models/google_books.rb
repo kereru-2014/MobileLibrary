@@ -5,7 +5,7 @@ module GoogleBooks
     include HTTParty
     format :json
 
-    KEY = "AIzaSyCv3lXTwMl2wUxHTH9MJFkMK4AVsjLfjCw"
+    KEY = "AIzaSyDs2pXyysiCwyThPdBKDEI_8GTw_mvksD8"
 
     base_uri "https://www.googleapis.com/books/v1"
 
