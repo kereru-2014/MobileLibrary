@@ -20,9 +20,6 @@ module GoogleBooks
 
       books = []
 
-      puts ">"*120
-      p response
-      puts "<"*120
       response["items"].each do |book|
         info = book.fetch("volumeInfo", {})
         image_links = info.fetch("imageLinks", { "thumbnail" => "http://www.clker.com/cliparts/7/e/O/F/z/Y/blank-book-md.png"})
