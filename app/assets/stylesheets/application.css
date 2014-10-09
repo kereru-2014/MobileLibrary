@@ -18,27 +18,30 @@
   border: 1px;
 }
 
-
-
 .container h2{
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 .container a{
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 .container input{
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 
 #logOutButton{
    font-family: 'Lato', sans-serif;
+   font-weight: 300;
 }
 
 .new_user{
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
   width:80%;
   left:500px;
 }
@@ -47,11 +50,10 @@
   width:35.5em;
   height:20.0em;
   margin:0 auto;
+  padding: 0 30px;
 }
 
 .bookPic{
-  width:35.5em;
-  height:30.0em;
   margin:0 auto;
   background-image: url('http://julioh.com/Tech-Specs_files/iStock1502751Large-B-flat.jpg');
   background-repeat: no-repeat;
@@ -59,9 +61,27 @@
 
 .quote{
   font-family: 'Lato', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 300;
   text-align: center;
   font-size: 90%;
 }
+
+@media screen and (max-width: 560px){
+  .bookPic{
+  width:24em;
+  height:20.0em;
+  }
+}
+
+@media screen and (min-width: 560px){
+  .bookPic{
+  width:35.5em;
+  height:30.0em;
+  }
+}
+
+
 
 @media screen and (min-width: 35.5em){
 .pure-u-sm-1{
