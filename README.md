@@ -7,7 +7,7 @@ MobileLibrary
 
 Online Application
 =================
-[MobileLibrary](http://salty-savannah-1450.herokuapp.com)
+[MobileLibrary](http://mobilelibrary.nz)
 
 API Documentation
 =================
